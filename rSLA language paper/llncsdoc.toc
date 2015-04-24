@@ -1,0 +1,21 @@
+\contentsline {section}{\numberline {1}rSLA DSL Introduction}{1}
+\contentsline {section}{\numberline {2}WSLA motivation}{2}
+\contentsline {section}{\numberline {3}rSLA BNF }{2}
+\contentsline {subsection}{\numberline {3.1}rSLA vocabulary}{3}
+\contentsline {subsection}{\numberline {3.2}SLA object}{4}
+\contentsline {subsection}{\numberline {3.3}Base metric}{4}
+\contentsline {subsubsection}{Measurement directive}{6}
+\contentsline {subsection}{\numberline {3.4}Schedule}{7}
+\contentsline {subsection}{\numberline {3.5}Composite metric}{8}
+\contentsline {subsection}{\numberline {3.6}Service level objectives}{9}
+\contentsline {subsection}{\numberline {3.7}Expression}{10}
+\contentsline {section}{\numberline {4}rSLA BNF (user implicit?)}{10}
+\contentsline {subsection}{\numberline {4.1}Timeseries}{10}
+\contentsline {subsection}{\numberline {4.2}Observation}{11}
+\contentsline {subsection}{\numberline {4.3}Evaluation}{11}
+\contentsline {subsection}{\numberline {4.4}Notification}{11}
+\contentsline {subsection}{\numberline {4.5}Action}{11}
+\contentsline {section}{\numberline {5}rSLA runtime environment}{12}
+\contentsline {subsection}{\numberline {5.1}xLets}{12}
+\contentsline {subsection}{\numberline {5.2}data management}{12}
+\contentsline {subsection}{\numberline {5.3}IBM Bluemix deployment}{12}
