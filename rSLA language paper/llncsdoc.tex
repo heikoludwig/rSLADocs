@@ -17,19 +17,17 @@
 \lstset{numbers=left, basicstyle=\small, numbersep=5pt, numberstyle=\tiny}
 
 \section{Introduction}
+what problem does it solve? why is it needed? 
 
-rSLA is a domain specific language (DSL) for expressing and managing service level agreements (SLAs) in a cloud environment. rSLA is written with Ruby \cite{ruby}, a dynamic scripting language that enables rapid prototyping and application development. The rSLA DSL is described by an alphabet and by production rules for using and extending the language. The rSLA language framework also provides a runtime engine to deploy and instantly run an rSLA service in a cloud environment.
+rSLA is a domain specific language (DSL) for expressing and managing service level agreements (SLAs) in a cloud environment. rSLA is coded in Ruby \cite{ruby}, a dynamic scripting language that enables rapid prototyping and application development. The rSLA DSL is described by an alphabet and by production rules that help to extend the language. The rSLA programming library provides a runtime engine for deploying and running an rSLA service in a cloud environment.
 
-Cloud service management does not yet support enough automated and transparent solutions for the management of leased resources. There is no established standard so far for the automatic expression and management of SLAs for cloud services.
+The rSLA library can instantly be deployed as a service on the IBM Bluemix platform using the ruby sinatra or rails gems. The DSL enables automated generation of customized SLAs and transparent management of cloud resources.
 
-Although the scientific literature provides plentiful results on the automated management of SLAs for distributed computing \cite{wsla, wsag, more}, cloud markets hesitate to adopt such solutions. Provisioning of cloud services is thus handled either manually or with software tools that do not embrace cloud service characteristics.
+Although the scientific literature provides plentiful results on automated management of SLAs for distributed computing \cite{wsla, wsag, more}, cloud markets hesitate to adopt such solutions. Provisioning of cloud services is handled either manually or with software tools that do not embrace cloud service characteristics.
 
+Cloud service management does not yet support enough automated and transparent solutions for the management of leased resources. There is no established standard yet for the automatic expression and management of SLAs for cloud services.
 
-The rSLA is deployed on the IBM Bluemix platform as a ruby web service using the sinatra gem. 
-The DSL enables the automated generation of customized SLAs and the transparent management of cloud resources.
-what problem does it solve? why is it needed?
-
-rSLA provides an alphabet with production rules to express, a runtime engine to run.
+rSLA provides an alphabet with production rules to express and a runtime engine to run.
 
 How is the paper structured
 
