@@ -1,0 +1,145 @@
+#### Common Elements - BNF notation ##############################
+ grammarRule $::= <rule>+ 'literal' | <rule>$ ; Every grammar rule is decomposed into another set of rules and/or literals 
+ 
+ "|" ::= choice, logical OR
+ 
+ ";" ::= end of rule
+ 
+ "::=" ::= defined as/consists of
+ 
+ "?" ::= suffix to denote optional
+ 
+ "()" ::= denote grouping of rules and/or literals    
+ 
+ Kleene star * for 0 or more
+ 
+ Kleene plus + for 1 or more
+ 
+ ".." ::= range
+ 
+ <digit> ::= '0'..'9'
+ 
+ <dow>   ::= 'a'..'z'
+ 
+ <number>  ::= <digit+> | <dow+>
+ 
+ <Id> ::= 'literal'| ('a'..'z'|'A'..'Z'|_|'0'..'9')* ;
+ 
+ <dateTime> ::= see ISO 8601 date time format
+ 
+ <string> ::= """<Unicode content>"""
+ 
+ <Unicode content> ::= See http://www.unicode.org/versions/Unicode7.0.0/
+ 
+ <URI> ::= See RFC 3986 (http://www.ietf.org/rfc/rfc3986.txt)
+ 
+
+< SLA object > BNF grammar
+ 
+<SLA> ::= "sla" "do" <tenant> <provider> <description> <agreedTime> "end" (<baseMetric>+) (<compositeMetric >∗) (<SLO >+);
+<description> ::= "description" <string>;
+<tenant> ::= "tenant" <Id>;
+<provider ::= "provider" <Id>;
+<agreedTime> ::= "agreedTime" <dateTime> ; 
+
+
+< BaseMetric > BNF grammar
+<baseMetric> ::= "basemetric" "do" <name> <source> <type> <unit> <measurementDirective> <schedule+>  "end" ; 
+<name> ::= "name" <string> ;
+<source> ::= "source" <URI> ; 
+<type> ::= "type" """ <collectionType> <valueType> """ | """ <valueType>""" ;
+<collectionType> ::= "timeSeries" | "eventSet" ;
+<valueType> ::= float | integer | boolean | <string> ;
+<unit> ::= "unit" """ <collectionUnit> <valueUnit> """ | """ <valueUnit>""";
+<collectionUnit> ::= "timeSeries" | "eventSet" ;
+<valueUnit> ::= float | integer | boolean | <string> ;
+ 
+<measurementDirective> ::= "measurementDirective" "do" <entity> <unit> <source> "end" ;
+<entity> ::= "entity" <string>;
+<unit> ::= "unit" """ <collectionUnit> <valueUnit> """ | """ <valueUnit>""";
+<source> ::= "source" <URI>; 
+ 
+<schedule> ::= "schedule" "do" <frequency> <unit> <method> "end";
+<frequency> ::= "frequency" <number*>;
+<scheduleUnit> ::= "unit" <sunit> ;  ## unit particular to schedule
+<sunit> ::= "s" | "h" | "m" | "d" | "w" 
+<method> ::= "method" <everyStatement> | <atStatement> | <inStatement> | <cronStatement> | * ;
+<everyStatement> ::= "every"
+<atStatement> ::= "at"
+<inStatement> ::= "in"
+<cronStatement> ::= <min> + <hour> + <day-of-month> + <month> + <day-of-week> | * ;
+<min> ::= '0'..'59';
+<hour> ::= '0'..'23';
+<day-of-month> ::= '1'..'31';
+<month> ::='1'..'12';
+<day-of-week> ::='0'..'7'
+
+< MeasurementDirective > BNF grammar 
+<measurementDirective> ::= "measurementDirective" "do" <entity> <unit> <source> "end" ;
+<entity> ::= "entity" <string>;
+<unit> ::= "unit" """ <collectionUnit> <valueUnit> """ | """ <valueUnit>""";
+<source> ::= "source" <URI>;
+
+<schedule> ::= "schedule" "do" <frequency> <unit> <method> "end";
+<frequency> ::= "frequency" <number*>;
+<scheduleUnit> ::= "unit" <sunit> ;  ## unit particular to schedule
+<sunit> ::= "s" | "h" | "m" | "d" | "w" 
+<method> ::= "method" <everyStatement> | <atStatement> | <inStatement> | <cronStatement> | * ;
+<everyStatement> ::= "every"
+<atStatement> ::= "at"
+<inStatement> ::= "in"
+<cronStatement> ::= <min> + <hour> + <day-of-month> + <month> + <day-of-week> | * ;
+<min> ::= '0'..'59';
+<hour> ::= '0'..'23';
+<day-of-month> ::= '1'..'31';
+<month> ::='1'..'12';
+<day-of-week> ::='0'..'7'
+
+< CompositeMetric > BNF grammar 
+<compositemetric> ::="compositeMetric" "do" <name> <type> <unit> <expression> "end" ; 
+<name> ::= "name" <string> ;
+<type> ::= "type" """ <collectionType> <valueType> """ | """ <valueType>""" ;
+<collectionType> ::= "timeSeries" | "eventSet" ;
+<valueType> ::= float | integer | boolean | <string> ;
+<unit> ::= "unit" """ <collectionUnit> <valueUnit> """ | """ <valueUnit>""";
+<collectionUnit> ::= "timeSeries" | "eventSet" ;
+<valueUnit> ::= float | integer | boolean | <string> ;
+
+<expression> ::= <metrics+> <method> <select> | <compoundStatement> + <statement> | <statement> ;
+<metrics> ::= <baseMetric*> <compositeMetric*> ;
+<method> ::= <compoundStatement> | <compoundStatement> + 'literal' | 'literal' ;
+<compoundStatement> ::= <compoundStatement> + <statement> | <statement> | <compoundStatement > ;
+<statement> ::= <statement> + 'literal' | <statement> | 'literal' ;
+<select> ::= 'date-time' ;
+
+< ServiceLevelObjective > BNF grammar
+
+<SLO> ::= "slo" "do" <name> <precondition> <objective> <schedule> "end" ;
+<name>::= "name" <string> ;
+<precondition>::= <expression> ;
+<objective> ::= <expression> ;
+
+<expression> ::= <compoundStatement> + <statement> | <statement> ;
+<compoundStatement> ::= <compoundStatement> + <statement> | <statement> | <compoundStatement> ;
+
+<statement> ::= <statement> + 'literal' | <statement> | 'literal' ;
+<schedule> ::= "schedule" "do" <frequency> <unit> <method> "end";
+<frequency> ::= "frequency" <number*>;
+<scheduleUnit> ::= "unit" <sunit> ;  ## unit particular to schedule
+<sunit> ::= "s" | "h" | "m" | "d" | "w" 
+<method> ::= "method" <everyStatement> | <atStatement> | <inStatement> | <cronStatement> | * ;
+<everyStatement> ::= "every"
+<atStatement> ::= "at"
+<inStatement> ::= "in"
+<cronStatement> ::= <min> + <hour> + <day-of-month> + <month> + <day-of-week> | * ;
+<min> ::= '0'..'59';
+<hour> ::= '0'..'23';
+<day-of-month> ::= '1'..'31';
+<month> ::='1'..'12';
+<day-of-week> ::='0'..'7'
+
+< Expression > BNF grammar
+<expression> −> 'term ' + <expression> | <expression> | ' term ' | <compoundStatement> + ' term ' | compoundStatement ;
+<compoundStatement> −> <compoundStatement> | < compoundStatement> + <statement> | <statement >;
+<statement> −> <statement> | <statement>+<term> | <term> ;
+<term> −> 'literal' ; 
