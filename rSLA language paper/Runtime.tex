@@ -1,0 +1,13 @@
+\section{rSLA editing, runtime}
+\label{sec:runtime}
+ready to use functions
+
+The rSLA alphabet consists of language elements that require user input for their creation in an rSLA runtime environment. A DSL user can directly 
+edit code-block scripts in ruby, start a cloud rSLA service and create an active SLA object. In the diagram solid black arrows indicate that 
+user-input is required to create the equivalent objects in an rSLA running environment. 
+
+In Figure \ref{rSLA_diag} language elements that require user-input represent tree branches for the creation of service level agreements. DSL 
+user-input requires editing a ruby script to describe the attributes for any new rSLA object. 
+
+The rSLA language also contains elements, whose definition with an rSLA service requires that at least one SLA object exists (ex. base metric, slo). A 
+DSL user can edit the context of such elements and associate them with required objects using code blocks in ruby SLA scripts.
