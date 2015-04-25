@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  24 APR 2015 18:17
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  25 APR 2015 01:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -581,26 +581,21 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 1.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
-LaTeX Warning: Citation `ruby' on page 1 undefined on input line 6.
+LaTeX Warning: Citation `ruby' on page 1 undefined on input line 3.
 
 
-LaTeX Warning: Citation `wsag' on page 1 undefined on input line 10.
+LaTeX Warning: Citation `wsag' on page 1 undefined on input line 7.
 
 
-LaTeX Warning: Citation `more' on page 1 undefined on input line 10.
+LaTeX Warning: Citation `more' on page 1 undefined on input line 7.
 
 
-LaTeX Font Warning: Font shape `OT1/cmss/bx/sc' undefined
-(Font)              using `OT1/cmss/bx/n' instead on input line 16.
-
-
-LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <9> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 16.
+LaTeX Warning: Citation `bluemix' on page 1 undefined on input line 13.
 
 ) (./Problem.tex) (./DSL.tex [1{/usr/local/texlive/2013/texmf-var/fonts/map/pdf
 tex/updmap/pdftex.map}
 
-] <pics/rslauser.png, id=49, 849.1725pt x 472.76625pt>
+] <pics/rslauser.png, id=52, 849.1725pt x 472.76625pt>
 File: pics/rslauser.png Graphic file (type png)
 
 <use pics/rslauser.png>
@@ -616,45 +611,42 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 30.
  [2 <./pics/rslauser.png>]) (./Runtime.tex) (./Deployment.tex) (./mainDoc.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 69.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 68.
  [3]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 69.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 68.
  (./mainDoc.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 69.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 69.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 68.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 68.
 Package rerunfilecheck Info: File `mainDoc.out' has not changed.
 (rerunfilecheck)             Checksum: 001C09B0E1F9C88DA1FB9CEDE4D14D6E;441.
 
 
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 69.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 68.
  ) 
 Here is how much of TeX's memory you used:
- 10156 strings out of 493315
- 149946 string characters out of 6137904
- 269404 words of memory out of 5000000
- 13427 multiletter control sequences out of 15000+600000
- 10910 words of font info for 42 fonts, out of 8000000 for 9000
+ 10147 strings out of 493315
+ 149830 string characters out of 6137904
+ 268404 words of memory out of 5000000
+ 13420 multiletter control sequences out of 15000+600000
+ 9521 words of font info for 38 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 36i,7n,40p,519b,1154s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,9n,40p,479b,1154s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
 /usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
 sr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/
-local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/loc
-al/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/lo
-cal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/loc
-al/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local
-/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on mainDoc.pdf (3 pages, 228479 bytes).
+local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/loc
+al/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/
+texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/tex
+live/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texli
+ve/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on mainDoc.pdf (3 pages, 228230 bytes).
 PDF statistics:
- 114 PDF objects out of 1000 (max. 8388607)
- 96 compressed objects within 1 object stream
- 19 named destinations out of 1000 (max. 500000)
+ 117 PDF objects out of 1000 (max. 8388607)
+ 99 compressed objects within 1 object stream
+ 20 named destinations out of 1000 (max. 500000)
  62 words of extra memory for PDF output out of 10000 (max. 10000000)
 
