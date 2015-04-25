@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2013)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: mainDoc.aux
+The style file: splncs.bst
+Database file #1: mainDoc.bib
+Warning--I didn't find a database entry for "ruby"
+Warning--I didn't find a database entry for "wsag"
+Warning--I didn't find a database entry for "more"
+You've used 1 entry,
+            2785 wiz_defined-function locations,
+            593 strings with 4636 characters,
+and the built_in function-call counts, 561 in all, are:
+= -- 39
+> -- 27
+< -- 0
++ -- 11
+- -- 10
+* -- 39
+:= -- 84
+add.period$ -- 1
+call.type$ -- 1
+change.case$ -- 9
+chr.to.int$ -- 0
+cite$ -- 1
+duplicate$ -- 49
+empty$ -- 41
+format.name$ -- 11
+if$ -- 107
+int.to.chr$ -- 0
+int.to.str$ -- 1
+missing$ -- 12
+newline$ -- 8
+num.names$ -- 2
+pop$ -- 24
+preamble$ -- 1
+purify$ -- 7
+quote$ -- 0
+skip$ -- 5
+stack$ -- 0
+substring$ -- 21
+swap$ -- 27
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 4
+warning$ -- 0
+while$ -- 3
+width$ -- 2
+write$ -- 14
+(There were 3 warnings)

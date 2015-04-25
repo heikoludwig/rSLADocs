@@ -1,0 +1,10 @@
+\begin{thebibliography}{1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+
+\bibitem{wsla}
+{L}udwig, H., {K}eller, A., {D}an, A., {K}ing, R., {F}ranck, R.: {W}eb
+  {S}ervice {L}evel {A}greement ({WSLA}) {L}anguage {S}pecification. Tech.
+  rep., IBM Corporation (Jan 2003)
+
+\end{thebibliography}
