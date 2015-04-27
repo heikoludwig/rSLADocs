@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  25 APR 2015 01:20
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  26 APR 2015 22:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -592,10 +592,20 @@ LaTeX Warning: Citation `more' on page 1 undefined on input line 7.
 
 LaTeX Warning: Citation `bluemix' on page 1 undefined on input line 13.
 
-) (./Problem.tex) (./DSL.tex [1{/usr/local/texlive/2013/texmf-var/fonts/map/pdf
-tex/updmap/pdftex.map}
+) (./Problem.tex
 
-] <pics/rslauser.png, id=52, 849.1725pt x 472.76625pt>
+LaTeX Warning: Citation `wsag' on page 1 undefined on input line 5.
+
+
+LaTeX Warning: Citation `lisa' on page 1 undefined on input line 5.
+
+
+LaTeX Warning: Citation `lessons' on page 1 undefined on input line 5.
+
+[1{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
+])
+(./DSL.tex [2] <pics/rslauser.png, id=57, 849.1725pt x 472.76625pt>
 File: pics/rslauser.png Graphic file (type png)
 
 <use pics/rslauser.png>
@@ -610,9 +620,9 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 30.
- [2 <./pics/rslauser.png>]) (./Runtime.tex) (./Deployment.tex) (./mainDoc.bbl)
+ [3 <./pics/rslauser.png>]) (./Runtime.tex) (./Deployment.tex) (./mainDoc.bbl)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 68.
- [3]
+ [4]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 68.
  (./mainDoc.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 68.
@@ -626,13 +636,13 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 68.
  ) 
 Here is how much of TeX's memory you used:
- 10147 strings out of 493315
- 149830 string characters out of 6137904
+ 10150 strings out of 493315
+ 149851 string characters out of 6137904
  268404 words of memory out of 5000000
- 13420 multiletter control sequences out of 15000+600000
+ 13422 multiletter control sequences out of 15000+600000
  9521 words of font info for 38 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 36i,9n,40p,479b,1154s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,9n,40p,581b,1154s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
@@ -643,10 +653,10 @@ al/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/
 texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/tex
 live/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texli
 ve/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on mainDoc.pdf (3 pages, 228230 bytes).
+Output written on mainDoc.pdf (4 pages, 231294 bytes).
 PDF statistics:
- 117 PDF objects out of 1000 (max. 8388607)
- 99 compressed objects within 1 object stream
- 20 named destinations out of 1000 (max. 500000)
+ 123 PDF objects out of 1000 (max. 8388607)
+ 103 compressed objects within 2 object streams
+ 21 named destinations out of 1000 (max. 500000)
  62 words of extra memory for PDF output out of 10000 (max. 10000000)
 
