@@ -13,6 +13,7 @@
 
 \usepackage{fixltx2e}
 \usepackage{stfloats}
+\usepackage{float}
 \usepackage{graphicx} % Required for the inclusion of images
 \usepackage{amsmath} % Required for some math elements 
 \usepackage{caption}
@@ -45,7 +46,39 @@
 \newcommand{\heiko}[1]{\annote{Heiko}{#1}}
 \newcommand{\todoheiko}[1]{\annote{TODO-Heiko}{#1}}
 
-\lstset{numbers=left, basicstyle=\small, numbersep=5pt, numberstyle=\tiny}
+\lstset{
+ % frame=top,frame=bottom,
+  basicstyle=\small\normalfont\sffamily,    % the size of the fonts that are used for the code
+  stepnumber=1,                           % the step between two line-numbers. If it is 1 each line will be numbered
+  numbersep=10pt,                         % how far the line-numbers are from the code
+  %tabsize=2,                              % tab size in blank spaces
+  extendedchars=true,                     %
+  breaklines=true,                        % sets automatic line breaking
+  captionpos=b,                           % sets the caption-position 
+  mathescape=true,
+  %stringstyle=\color{white}\ttfamily, % Farbe der String
+  %showspaces=false,           % Leerzeichen anzeigen ?
+  %showtabs=false,             % Tabs anzeigen ?
+  xleftmargin=7pt,
+  framexleftmargin=7pt,
+  framexrightmargin=7pt,
+  framexbottommargin=5pt,
+  framextopmargin=5pt,
+%  showstringspaces=false      % Leerzeichen in Strings anzeigen ?
+ }
+
+%\DeclareCaptionFormat{listing}{\rule{\dimexpr\textwidth+7pt\relax}{0.4pt}\par\vskip1pt#1#2#3}
+%\captionsetup[lstlisting]{format=listing,singlelinecheck=false, margin=0pt, font={sf},labelsep=space,labelfont=bf}
+
+%\renewcommand\lstlistingname{Algorithm}
+
+\DeclareMathVersion{sans}
+\SetSymbolFont{operators}{sans}{OT1}{cmbr}{m}{n}
+\SetSymbolFont{letters}  {sans}{OML}{cmbrm}{m}{it}
+\SetSymbolFont{symbols}  {sans}{OMS}{cmbrs}{m}{n}
+
+\lstnewenvironment{sflisting}[1][]
+  {\lstset{#1}\mathversion{sans}}{}
 
 \begin{document}
 \input{Introduction}

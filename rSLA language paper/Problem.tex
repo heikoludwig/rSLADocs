@@ -10,12 +10,9 @@ A scheduler is used to coordinate the execution of involved processes for the sy
  
 In service level management, there are functional and operational dependencies between involved entities. For example, a composite metric, as its name implies, represents the composition result from one or more base, as well as composite metric values. The values of composite metrics in an SLA are used for the definition of conditions and objectives on service levels. 
 
-Hence, a schedule configuration for measuring base metric values, may impact the evaluation schedule for one or more composite metric values. Such dependencies raise research questions on how an optimal scheduling configuration can be achieved in a cloud environment for service measurement and evaluation tasks . 
-
-Evaluation of service levels may consist from multiple computing tasks. SLOs are evaluated in scheduled intervals to determine service level compliance. An evaluation process may define a set of SLO conditions.  Such conditions can take the form of logical statements that are configured in the SLO definition. Logical statements may require that 
-
-
-evaluation
+Hence, a schedule configuration for measuring base metric values, may impact the evaluation schedule for one or more composite metric values. Such dependencies raise research questions on how optimal scheduling configurations can apply in a cloud environment for service measurement and evaluation tasks.
+ 
+Evaluation of service levels consists from multiple computing tasks. SLOs are evaluated in scheduled intervals to determine service level compliance. An evaluation process may define a set of SLO conditions.  Such conditions take the form of logical statements that are configured in the SLO definition. Logical statements may require to compare a set of composite values against one or more threshold values. 
 
 rSLA provides an SLA programming library and a service runtime engine for creating and managing SLAs in a cloud environment. The language is not intended to be used only by engineers or ruby developers. An important goal of the rSLA design is to provide a high-level, easy to use and to extend tool that is suitable either for human or machine consumption.
 
