@@ -6,11 +6,11 @@ production rules
 
 \subsection{rSLA language structure, alphabet}
 
-The rSLA language follows the semantic decomposition of the WSLA specification \cite{wsla}, where an SLA takes the form of a hierarchical tree with a single root node and numerous uni-directional edges. In an rSLA tree, the root node represents an SLA object. Figure \ref{rSLA_diag} illustrates the rSLA vocabulary as a tree of objects that the DSL implements. 
+The rSLA language follows the semantic decomposition of the WSLA specification \cite{wsla}, where an SLA takes the form of a hierarchical tree with a single root node and numerous uni-directional edges. In an rSLA tree, the root node represents an SLA object. Figure \ref{rSLA_diag} illustrates diagrammatically the rSLA vocabulary as a tree of objects that the DSL implements. Listing \ref{lst} explains the rSLA tree using set notation to highlight the nesting that is inherited from the WSLA specification \cite{wsla}, between language objects:
 
 \begin{minipage}{0.5\textwidth}
 \begin{figure}[H]
-\includegraphics[width=0.9\textwidth]{pics/rslaobject}
+\includegraphics[width=1.0\textwidth]{pics/rslaobject}
 \caption{\label{rSLA_diag} rSLA DSL object diagram}
 \end{figure}
 \end{minipage} \hfill
@@ -25,7 +25,6 @@ SLO $\supset$ { Expression*, Action*, Evaluation*, Schedule* }
 
 Connections between nodes in the rSLA tree highlight nesting of SLA context. In Figure \ref{rSLA_diag} nodes that are close to the root, designate SLA branches like base, composite metrics and service level objectives. Edges between nodes are uni-directed to illustrate the rSLA tree hierarchy. The edge direction points to the nested element in the hierarchical relationship. $+$ symbols on edges indicate that the parent node may include multiple nested objects. Hence, an SLA may consist of multiple base, composite metrics as well as SLOs.
 
-Listing \ref{lst} describes the rSLA vocabulary using set notation to highlight the nesting between language objects:
 
 
 rSLA supports the creation of programming blocks that express SLA context and that are necessary to run and manage rSLAs in a cloud environment. 
