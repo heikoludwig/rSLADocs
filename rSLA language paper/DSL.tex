@@ -15,7 +15,7 @@ The rSLA language follows the semantic decomposition of the WSLA specification \
 \end{figure}
 \end{minipage} \hfill
 \begin{minipage}{0.5\textwidth}
-\begin{lstlisting}[breaklines, mathescape, firstnumber=auto, caption=rSLA vocabulary, label=lst]
+\begin{lstlisting}[basicstyle=\small\normalfont\sffamily, breaklines=true,  captionpos=b, mathescape=true, caption=rSLA vocabulary, label=lst]
 SLA $\supset$ { BaseMetric+, CompositeMetric*, SLO+ }
 BaseMetric $\supset$ { MeasurementDirective, Observation*, Schedule* }
 CompositeMetric $\supset$ { Expression* }
@@ -37,27 +37,27 @@ The rSLA DSL exposes such objects as structured programming blocks that a user c
 
 The rSLA DSL uses production rules in Backus-Naur form (BNF) notation to describe the syntax of rSLA programming blocks. As we discuss in the next section, ruby programming blocks represent the editing rules of the rSLA language. The description of rSLA blocks in BNF notation exemplifies how to use and extend such structures with the rSLA programming library.
 
-In the BNF grammar, every rule is decomposed into another set of rules and literals. The symbol "::=" refers to \textit{is defined} or \textit{can by produced by}. Literal or terminal symbols are denoted as "literal" and non-literal symbols are enclosed in brackets $<>$.
+In the BNF grammar, every rule is decomposed into another set of rules and literals. The symbol "::=" refers to \textit{is defined} or \textit{is produced by}. Literal or terminal symbols are denoted as "literal" and non-literal symbols are enclosed in brackets $<>$.
 
-Grammar \ref{slobnf} illustrates an excerpt of the rSLA BNF production rules for the generation of an SLO object. Service level objectives (SLOs) describe promises from a provider to a customer with respect to service provisioning levels\cite{wsla}. An SLA is defined by one or more SLOs. The excerpt highlights the
+Grammar \ref{slobnf} illustrates an excerpt of the rSLA BNF production rules for the generation of an SLO object. Service level objectives (SLOs) describe promises from a provider to a customer with respect to service provisioning levels\cite{wsla}. An SLA is defined by one or more SLOs. The right side of Line 1 in Grammar \ref{slobnf} summarizes the block of statements that the rSLA DSL requires as input for the creation of a new SLO object.
 \begin{grammar}[caption= Service level objective (SLO) production rules, label=slobnf]
 <SLO> ::= "slo" "do" <name> <precondition> <objective> <schedule> "end" ;
 <name>::= "name" <string> ;
 <precondition>::= <expression> ;
 <objective> ::= <expression> ;
 <schedule> ::= "schedule" "do" <frequency> <unit> <method> "end";
-\end{grammar}
- 
-A DSL user can define a new SLO object by customizing the grammar statements of \ref{slobnf}. An SLO object has a name that is represented by a string. An SLO is also specified by a precondition and by an objective that in the rSLA grammar are defined with the symbol $<$expression$>$. 
+\end{grammar} 
+An SLO object has a name that is represented by a string. An SLO is also specified by a precondition and by an objective that in the rSLA grammar are denoted with the symbol $<$expression$>$. 
+The rSLA language supports the free formation of valid ruby statements. Free-formatted statements define expression objects. In the rSLA grammar an expression object is represented as a non-literal symbol that is further refined into statement combinations. The decomposition of a non-literal expression may produce various statements that associate both literal and non-literal symbols . 
 
-The rSLA language supports the free formation of valid ruby statements, which defines as expression objects. In the rSLA grammar an expression object is represented as a non-literal symbol that is further refined into statement combinations and that may consist of literal and non-literal symbols. 
+An rSLA expression may refer to other rSLA objects and may define numerical and logical expressions for their description. Section \ref{editing} provides an $<$expression$>$ example for the creation of a new SLO object using an rSLA programming block.
 
-An rSLA expression may refer to other rSLA objects and may define new numerical and logical expressions for their description. Section \ref{editing} provides an $<$expression$>$ example for the creation of a new SLO object using an rSLA programming block.
+An SLO object also embeds in its definition one or more schedules for its evaluation. In the rSLA grammar, a schedule represents a non-literal symbol that is syntactically and contextually decomposed into the non-literal symbols of frequency, unit and method. Frequency determines the schedule periodicity, thus how often a scheduler triggers execution tasks with respect to a schedule. The schedule unit determines in time units the intervals to fire schedule events. The non-literal method describes how to run tasks of the defined schedule. A method may consist of either literal or non-literal statements.
 
 \subsection{rSLA editing}\label{editing}
 
-The rSLA DSL exposes ruby programming blocks for the production of SLO objects. A DSL user can edit and extend such programming blocks according to domain specific needs. An example of an rSLA SLO programming block is illustrated at listing \ref{slodef}.
-\begin{block}[caption= rSLA SLO definition, label=slodef]
+The rSLA DSL exposes ruby programming blocks for the production of SLO objects. A DSL user can edit and extend such programming blocks according to domain specific needs. An example of such a ruby programming block for the creation of an SLO object is illustrated by rSLA coding block \ref{slob}.
+\begin{block}[caption=SLO definition, label=slob]
 slo do
      name "CpuUtil"
      precondition do CPUutilization.value<15 end
@@ -70,18 +70,17 @@ slo do
 end	
 \end{block}
 
-The SLO definition in listing \ref{slodef} provides a configuration sample for the generation of SLO objects with the rSLA language. In listing \ref{slodef} the precondition and objective couple are defined using simple statements, which might not be the case with a real rSLA runtime scenario.
+The SLO definition of \ref{slob} provides a configuration sample for the generation of SLO objects with the rSLA language. In the ruby block, precondition and objective expressions are defined using both non-literal and literal symbols. In this case, non-literal terms refer to other rSLA objects. For example in the precondition statement, an expression is defined by stating a condition for the numeric value of a CPUutilization rSLA object. Similarly, the objective sets a condition for the numeric value of a CPUmetric object.
 
-The programming logic between a precondition and an objective is hierarchical and summarized as follows:
-\begin{algorithmic}
-  \IF{$eval(Precondition)\rightarrow \neg Precondition$}
-    \STATE $SLO_{healthy}$ = true
- \ELSIF{$\not\exists Precondition \wedge eval(Objective) \rightarrow$ true}
-   \STATE $SLO_{healthy}$=true
-\ELSE
-\STATE $SLO_{healthy}$=false
-  \ENDIF 
-\end{algorithmic}
+The programming logic between a precondition and an objective expression is sequential and can be summarized by the following steps:
 
-An rSLA SLO object will first evaluate the precondition statement block. If the logical outcome from the execution of the precondition block is false, the SLO is healthy. 
-In case the precondition is true (or if there is no precondition block) the objective block is evaluated. If the logical outcome from running the objective block is true, the SLO is healthy, otherwise the SLO evaluation indicates not-healthy. A non-healthy SLO may result into a violation.
+\begin{lstlisting}[language=Ruby, basicstyle=\small\normalfont\sffamily, breaklines=true,  captionpos=b, mathescape=true, caption=rSLA SLO precondition-objective logic, label=ifelse, numbers=left, numbersep=5pt, numberstyle=\tiny]
+if $eval(Precondition)\rightarrow \neg Precondition$ then $SLO_{healthy}$ = true
+ elsif $((\neg \exists Precondition)\lor(Precondition=true)) \wedge eval(Objective) \rightarrow$ true
+ then $SLO_{healthy}$=true 
+ end
+else $SLO_{healthy}$=false
+  end
+\end{lstlisting}
+
+On SLO evaluation, the rSLA engine will evaluate first the precondition statement block. If the logical outcome from the execution of the precondition block is false, the SLO is healthy. In case the precondition is true or if there is no precondition block, the rSLA runtime will proceed with the evaluation of the objective block. If the logical outcome from processing statements of the objective block is true, then the SLO is healthy. Otherwise the SLO evaluation indicates not-healthy. A non-healthy SLO may result into a violation.

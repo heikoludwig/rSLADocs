@@ -70,10 +70,15 @@
   \xpatchcmd*{\lst@MakeCaption}{lol}{lor}{}{}%
   \lstset{language=Ruby, basicstyle=\ttfamily\small,frame=none, #1}}
   {}
-% --------------------------------------- Pseudocode
-%\lstnewenvironment{listing}
-%\renewcommand{\lstlistingname}{Listing}
-%  {\lstset{basicstyle=\ttfamily\small,breaklines=true,  captionpos=b, mathescape=true}}
+%\newcommand{\lstlistalgo}{rSLA logic}
+%\lst@UserCommand\lstlistalgo{\bgroup
+%    \let\contentsname\lstlistalgoname
+%    \let\lst@temp\@starttoc \def\@starttoc##1{\lst@temp{lor}}%
+%    \tableofcontents \egroup}
+%\lstnewenvironment{lstlistalgo}[1][]{%
+%  \renewcommand{\lstlistingname}{rSLA logic}%
+%  \xpatchcmd*{\lst@MakeCaption}{lol}{lor}{}{}%
+%  \lstset{basicstyle=\small\normalfont\sffamily, breaklines=true,  captionpos=b, mathescape=true, #1}}
 %  {}
 \makeatother
 
@@ -87,8 +92,6 @@
 \input{Runtime}
 
 \input{Deployment}
-
-\input{Xlets}
 
 \bibliographystyle{splncs}
 

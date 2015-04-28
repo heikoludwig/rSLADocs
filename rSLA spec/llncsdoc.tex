@@ -210,7 +210,7 @@ For such reasons a scheduler is required to coordinate SLA operations. Currently
 <unit> ::=  'literal' ;
 <method> ::=  <compoundStatement> | <compoundStatement> + 'literal' | 'literal' ;
 <compoundStatement> ::= <compoundStatement> + <statement> | <statement> | <compoundStatement> ;
-<statement> ::= <statement>+<term> | <statement> | <term> ;
+<statement> ::= <statement>+ <term> | <statement> | <term> ;
 \end{lstlisting}
 
 A schedule can be decomposed into its operation frequency, unit and triggering method. The operation frequency and unit provide information as to how often a scheduled task is running. The triggering method tells the scheduler how to execute the task. In rSLA a schedule takes the form of a nested array that passes such schedule parameters to a backend message queuing system. The DSL exposes a ruby block for a schedule definition and configuration that is encapsulated in the listing \ref{Rufuslst}
