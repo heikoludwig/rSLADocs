@@ -20,8 +20,6 @@
 
 \usepackage{url}
 \usepackage{algorithmic}
-\usepackage{listings}
-
 \usepackage{enumitem}
 \usepackage{subfig}
 \usepackage{comment}
@@ -30,7 +28,6 @@
 \usepackage{color}
 \usepackage{amssymb}
 \setcounter{tocdepth}{3}
-\usepackage{graphicx}
 
 \usepackage{fancyvrb}
 \newcommand{\ygg@basicalert}[2]{\fbox{\bfseries\sffamily\scriptsize#1}{\sf\small$\blacktriangleright$\textit{#2}$\blacktriangleleft$}}
@@ -46,42 +43,39 @@
 \newcommand{\heiko}[1]{\annote{Heiko}{#1}}
 \newcommand{\todoheiko}[1]{\annote{TODO-Heiko}{#1}}
 
-\lstset{
- % frame=top,frame=bottom,
-  basicstyle=\small\normalfont\sffamily,    % the size of the fonts that are used for the code
-  stepnumber=1,                           % the step between two line-numbers. If it is 1 each line will be numbered
-  numbersep=10pt,                         % how far the line-numbers are from the code
-  %tabsize=2,                              % tab size in blank spaces
-  extendedchars=true,                     %
-  breaklines=true,                        % sets automatic line breaking
-  captionpos=b,                           % sets the caption-position 
-  mathescape=true,
-  %stringstyle=\color{white}\ttfamily, % Farbe der String
-  %showspaces=false,           % Leerzeichen anzeigen ?
-  %showtabs=false,             % Tabs anzeigen ?
-  xleftmargin=6pt,
-  framexleftmargin=3pt,
-  framexrightmargin=3pt,
-%  framexbottommargin=30pt,
-%  framextopmargin=5pt,
-%  showstringspaces=false      % Leerzeichen in Strings anzeigen ?
- }
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{regexpatch}% http://ctan.org/pkg/regexpatch
 
-\DeclareCaptionFormat{listing}{\rule{\dimexpr\textwidth+17pt\relax}{0.4pt}\par\vskip1pt#1#2#3}
-%\captionsetup[lstlisting]{format=listing,singlelinecheck=false, margin=7pt, font={sf}}%,labelsep=space}%,labelfont=bf}
-
-%\renewcommand\lstlistingname{Algorithm}
-
-\DeclareMathVersion{sans}
-\SetSymbolFont{operators}{sans}{OT1}{cmbr}{m}{n}
-\SetSymbolFont{letters}  {sans}{OML}{cmbrm}{m}{it}
-\SetSymbolFont{symbols}  {sans}{OMS}{cmbrs}{m}{n}
-
-\lstnewenvironment{sflisting}[1][]
-  {\lstset{#1}\mathversion{sans}}{}
-  
-%\usepackage{caption}
-%\captionsetup[figure]{font=small,skip=0pt}   
+\makeatletter
+\newcommand{\lstlistgrammar}{List of rSLA grammars}
+\lst@UserCommand\lstlistgrammar{\bgroup
+    \let\contentsname\lstlistgrammarname
+    \let\lst@temp\@starttoc \def\@starttoc##1{\lst@temp{loc}}%
+    \tableofcontents \egroup}
+\lstnewenvironment{grammar}[1][]{%
+  \renewcommand{\lstlistingname}{Grammar}%
+  \xpatchcmd*{\lst@MakeCaption}{lol}{loc}{}{}%
+  \lstset{basicstyle=\small\normalfont\sffamily, breaklines=true,  captionpos=b, mathescape=true,
+  xleftmargin=6pt, framexleftmargin=6pt, framexrightmargin=6pt, numbers=left, numbersep=5pt,
+  numberstyle=\tiny, #1}}
+  {}
+\newcommand{\lstlistblock}{List of rSLA coding blocks}
+\lst@UserCommand\lstlistblock{\bgroup
+    \let\contentsname\lstlistblock
+    \let\lst@temp\@starttoc \def\@starttoc##1{\lst@temp{lor}}%
+    \tableofcontents \egroup}
+\lstnewenvironment{block}[1][]{%
+  \renewcommand{\lstlistingname}{rSLA coding block}%
+  \xpatchcmd*{\lst@MakeCaption}{lol}{lor}{}{}%
+  \lstset{language=Ruby, basicstyle=\ttfamily\small,frame=none, #1}}
+  {}
+% --------------------------------------- Pseudocode
+%\lstnewenvironment{listing}
+%\renewcommand{\lstlistingname}{Listing}
+%  {\lstset{basicstyle=\ttfamily\small,breaklines=true,  captionpos=b, mathescape=true}}
+%  {}
+\makeatother
 
 \begin{document}
 \input{Introduction}
