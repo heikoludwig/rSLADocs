@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  27 APR 2015 17:10
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  28 APR 2015 13:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -316,7 +316,7 @@ Package: subfig 2005/06/28 ver: 1.3 subfig package
 \sf@top=\skip54
 \sf@bottom=\skip55
 )
-No file llncsdoc.aux.
+(./llncsdoc.aux)
 \openout1 = `llncsdoc.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
@@ -331,6 +331,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
 LaTeX Font Info:    ... okay on input line 15.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
 LaTeX Font Info:    ... okay on input line 15.
+
 (/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count150
@@ -398,9 +399,10 @@ Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count156
 
-No file llncsdoc.toc.
+(./llncsdoc.toc)
 \tf@toc=\write3
 \openout3 = `llncsdoc.toc'.
+
 
 
 LaTeX Warning: Citation `wsla' on page 1 undefined on input line 26.
@@ -414,18 +416,17 @@ LaTeX Warning: Reference `wsla' on page 1 undefined on input line 31.
 
 LaTeX Warning: Citation `xml' on page 1 undefined on input line 31.
 
-
-LaTeX Warning: Reference `rSLA' on page 1 undefined on input line 33.
-
-
-LaTeX Warning: Citation `wsla' on page 1 undefined on input line 52.
-
 [1
 
 
 {/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 69.
 
+LaTeX Warning: Reference `rSLA' on page 2 undefined on input line 33.
+
+
+LaTeX Warning: Citation `wsla' on page 2 undefined on input line 52.
+
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 69.
 (/usr/local/texlive/2013/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
@@ -438,69 +439,28 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 69.
+ [2]
 
+LaTeX Warning: Citation `wsla' on page 3 undefined on input line 89.
 
-LaTeX Warning: Citation `wsla' on page 2 undefined on input line 89.
-
-<rslauser.png, id=9, 849.1725pt x 472.76625pt>
+<rslauser.png, id=18, 849.1725pt x 472.76625pt>
 File: rslauser.png Graphic file (type png)
  <use rslauser.png>
 Package pdftex.def Info: rslauser.png used on input line 92.
 (pdftex.def)             Requested size: 173.56177pt x 96.62915pt.
-
-
-LaTeX Warning: Reference `rSLA_diag' on page 2 undefined on input line 96.
-
-
-LaTeX Warning: Reference `rSLA_diag' on page 2 undefined on input line 96.
-
-[2]
-
-LaTeX Warning: Reference `rSLA_diag' on page 3 undefined on input line 100.
-
-
-Overfull \hbox (2.09908pt too wide) in paragraph at lines 100--101
-[]\OT1/cmr/m/n/10 In Fig-ure [] lan-guage el-e-ments that re-quire user-input r
-ep-re-sent tree branches
- []
-
-[3 <./rslauser.png>]
-
-LaTeX Warning: Reference `basemetric' on page 4 undefined on input line 129.
-
-
-LaTeX Warning: Reference `composite' on page 4 undefined on input line 130.
-
-
-LaTeX Warning: Reference `slos' on page 4 undefined on input line 131.
-
+ [3 <./rslauser.png>]
 
 LaTeX Warning: Citation `wsla' on page 4 undefined on input line 134.
 
 
 LaTeX Warning: Citation `wsla' on page 4 undefined on input line 139.
 
+[4] [5]
 
-LaTeX Warning: Reference `composite' on page 4 undefined on input line 150.
-
-[4]
-
-LaTeX Warning: Reference `measdir' on page 5 undefined on input line 172.
+LaTeX Warning: Citation `wsla' on page 6 undefined on input line 179.
 
 
-LaTeX Warning: Reference `schedule' on page 5 undefined on input line 174.
-
-
-LaTeX Warning: Reference `composite' on page 5 undefined on input line 176.
-
-
-LaTeX Warning: Reference `slos' on page 5 undefined on input line 176.
-
-
-LaTeX Warning: Citation `wsla' on page 5 undefined on input line 179.
-
-
-LaTeX Warning: Reference `)' on page 5 undefined on input line 184.
+LaTeX Warning: Reference `)' on page 6 undefined on input line 184.
 
 
 Underfull \hbox (badness 1642) in paragraph at lines 186--186
@@ -508,62 +468,20 @@ Underfull \hbox (badness 1642) in paragraph at lines 186--186
 . wikipedia . org / wiki / Uniform _ resource _
  []
 
-[5]
 
 LaTeX Warning: Citation `ensel' on page 6 undefined on input line 203.
 
-[6]
+[6] [7]
 
-LaTeX Warning: Reference `Rufuslst' on page 7 undefined on input line 216.
-
-
-LaTeX Warning: Citation `wsla' on page 7 undefined on input line 232.
-
-
-LaTeX Warning: Reference `Compolst' on page 7 undefined on input line 233.
-
-[7]
-
-LaTeX Warning: Reference `Compolst' on page 8 undefined on input line 247.
-
-
-LaTeX Warning: Reference `Composlst' on page 8 undefined on input line 247.
-
-
-LaTeX Warning: Reference `expression' on page 8 undefined on input line 264.
-
-
-LaTeX Warning: Citation `wsla' on page 8 undefined on input line 270.
-
-
-LaTeX Warning: Reference `slobnf' on page 8 undefined on input line 270.
+LaTeX Warning: Citation `wsla' on page 8 undefined on input line 232.
 
 [8]
 
-LaTeX Warning: Reference `slobnf' on page 9 undefined on input line 281.
+LaTeX Warning: Citation `wsla' on page 9 undefined on input line 270.
 
-
-LaTeX Warning: Reference `slodef' on page 9 undefined on input line 296.
-
-
-LaTeX Warning: Reference `slodef' on page 9 undefined on input line 310.
-
-
-LaTeX Warning: Reference `slodef' on page 9 undefined on input line 310.
-
-
-LaTeX Warning: Reference `expbnf' on page 9 undefined on input line 316.
-
-[9]
-
-LaTeX Warning: Reference `tslst' on page 10 undefined on input line 344.
-
-[10]
-
-LaTeX Warning: Reference `action' on page 11 undefined on input line 369.
-
+[9] [10] [11]
 No file llncsdoc.bbl.
-[11] [12] (./llncsdoc.aux)
+[12] (./llncsdoc.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -572,13 +490,13 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 5478 strings out of 493315
- 80569 string characters out of 6137904
- 230274 words of memory out of 5000000
+ 5482 strings out of 493315
+ 80621 string characters out of 6137904
+ 215512 words of memory out of 5000000
  8861 multiletter control sequences out of 15000+600000
  8222 words of font info for 31 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,9n,40p,656b,1520s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,9n,40p,656b,1521s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
@@ -593,7 +511,7 @@ ive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive
 2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/20
 13/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/201
 3/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on llncsdoc.pdf (12 pages, 308943 bytes).
+Output written on llncsdoc.pdf (12 pages, 309334 bytes).
 PDF statistics:
  102 PDF objects out of 1000 (max. 8388607)
  71 compressed objects within 1 object stream
