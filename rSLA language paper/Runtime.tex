@@ -60,13 +60,19 @@ Observed values of base metrics are stored during service provisioning. These da
 
 Currently, rSLA has been deployed using the Cloudant document database \cite{cloudant}. The values of base metrics are preserved as observation documents that also keep a timestamp on the measurement time and the associated base metric id. Cloudant uses map and reduce statements to collect and to efficiently process data values. 
 
-Associations between rSLA objects are, at the present time, described through the rSLA data schema in cloudant.
+rSLA uses CouchRest \cite{couchrest} to access Cloudant using HTTP requests and the CouchRest model to map rSLA object properties in the data middleware. Associations between rSLA objects are, at the present time, described through the rSLA Cloudant data schema. Figure \ref{schema} illustrates currently supported associations between rSLA objects.
+
+Base, composite metrics as well as SLOs are associated with an SLA instance by a $belongs_to$ relationship. Similarly, a set of observations $belongs_to$ a base metric and a set of evaluation and notification data to an SLO. 
+
+The $belongs_to$ feature is defined in the CouchRest model as a property for the association of documents. It resembles a $has-a$ composition relationship where a constituent object belongs to or is part of another object. In an rSLA cloudant environment 
+
 
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{pics/schema}
-\caption{\label{rslaobject} rSLA Cloudant object associations}
+\caption{\label{schema} rSLA Cloudant object associations}
 \end{figure}
+
 
 Processing, at the current implementation state, refers to compositions of service value sets for the creation of new rSLA objects.
 
