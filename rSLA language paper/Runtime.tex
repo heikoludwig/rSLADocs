@@ -56,16 +56,15 @@ Any SLA management framework for cloud services needs a tool for monitoring and 
 
 In an rSLA service, monitoring and measurement operations are controlled by one or more schedules. Every base metric follows its own schedule. Measured metric values are collected to a backend database for further processing. 
 \subsection{storage and processing}
-Observed values of base metrics are stored during service provisioning. These data values are required for the computation of composite metric values, which in turn are used in the service level evaluation. 
+Currently, rSLA is deployed as a service on the IBM Bluemix platform \cite{bluemix} and is configured to use a Cloudant \cite{cloudant} document database. The values of base metrics are preserved as observation documents with a timestamp on the measurement time and the associated base metric id. Cloudant uses map and reduce statements to collect and to efficiently process data values. 
 
-Currently, rSLA has been deployed using the Cloudant document database \cite{cloudant}. The values of base metrics are preserved as observation documents that also keep a timestamp on the measurement time and the associated base metric id. Cloudant uses map and reduce statements to collect and to efficiently process data values. 
+Observed values of base metrics are stored, while a provisioned service is running. These data values are required for the computation of composite metric values that are used by the service level evaluation. 
 
-rSLA uses CouchRest \cite{couchrest} to access Cloudant using HTTP requests and the CouchRest model to map rSLA object properties in the data middleware. Associations between rSLA objects are, at the present time, described through the rSLA Cloudant data schema. Figure \ref{schema} illustrates currently supported associations between rSLA objects.
+rSLA uses CouchRest \cite{couchrest} to access Cloudant through HTTP requests and CouchRest model to map rSLA object properties in the database. Associations between rSLA objects are, at the present time, described through the rSLA Cloudant data schema. Figure \ref{schema} illustrates  associations between rSLA objects in a Cloudant database.
 
-Base, composite metrics as well as SLOs are associated with an SLA instance by a $belongs_to$ relationship. Similarly, a set of observations $belongs_to$ a base metric and a set of evaluation and notification data to an SLO. 
+Base, composite metrics as well as SLOs are associated with an SLA instance by a \textit{belongs to} relationship. Similarly, a set of observations \textit{belongs to} a base metric and a set of evaluation and notification data to an SLO. 
 
-The $belongs_to$ feature is defined in the CouchRest model as a property for the association of documents. It resembles a $has-a$ composition relationship where a constituent object belongs to or is part of another object. In an rSLA cloudant environment 
-
+The \textit{belongs to} feature is defined in the CouchRest model as a property for the association of documents. It resembles a \textit{has-a} composition relationship \footnote{\url{http://en.wikipedia.org/wiki/Has-a}} where a constituent object belongs to or is part of the definition of another object.
 
 \begin{figure}
 \centering
@@ -73,13 +72,26 @@ The $belongs_to$ feature is defined in the CouchRest model as a property for the
 \caption{\label{schema} rSLA Cloudant object associations}
 \end{figure}
 
+At the current development state of the rSLA language, processing of service metric values may refer to compositions of base and composite metric value sets for the creation of composite metrics or of rSLA expression objects. In rSLA language, the definition of composite metrics represents the outcome from combining a set of base and/or composite metrics. The value computation of such metrics represents a computation that comprises values of other metrics. 
 
-Processing, at the current implementation state, refers to compositions of service value sets for the creation of new rSLA objects.
+As discussed in Section \ref{dsl}, expressions in rSLA denote free form statements that may take a conditional form or that may define data value computations. The computation for a composite metric value exemplifies an expression in rSLA. Composite metric values are used for the SLO evaluation. rSLA expressions that are defined as either SLO precondition or objectives may refer to composite metric values.
 
-timeseries: ready to use functions
+Last but not least, the rSLA language library contains also a time series class that can be used for the application of statistical functions on time-series data sets. 
+
 \subsection{scheduling}\label{schedule}
-The rSLA BaseMetric class provides methods for configuring a base metric object with one or more schedules.
+The rSLA BaseMetric class provides methods for configuring a base metric object with one or more schedules. In an rSLA runtime environment, a scheduler orchestrates the activation, monitoring and processing of rSLA objects.
+
+When the rSLA engine reads an rSLA script file and generates a new SLA object, the SLA object is inactive. The inactive state indicates that the SLA object is not associated with any service metrics that require measurement. It also designates that a scheduler is unaware of the SLA object creation and thus unaware of all rSLA objects that are defined in the new rSLA tree.
+
+On SLA activation, the rSLA engine collects all base metrics that are included under the new SLA and activates them by sending their schedule and id to a scheduler. The scheduler uses the base metric input to create scheduling events for each of the base metrics. 
+
+In rSLA composite metrics do not include a schedule as the computation of their values depends from SLO evaluation events. The SLO definition specifies a schedule for the evaluation of precondition and objective expressions. Moreover, a scheduler orchestrates notification processes that send evaluation reports on scheduled intervals.
+
+Currently, rSLA uses the rufus-scheduler\cite{\url{https://github.com/jmettraux/rufus-scheduler}} that is an in-memory Ruby scheduler.
+
 \subsection{service level evaluation}
+
+
 
 \subsection{notification reports}
 can also be alerts
