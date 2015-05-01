@@ -43,6 +43,21 @@
 \newcommand{\heiko}[1]{\annote{Heiko}{#1}}
 \newcommand{\todoheiko}[1]{\annote{TODO-Heiko}{#1}}
 
+\newcommand{\pramod}[1]{\annote{Pramod}{#1}}
+\newcommand{\todopramod}[1]{\annote{TODO-Pramod}{#1}}
+
+\newcommand{\obinna}[1]{\annote{Obinna}{#1}}
+\newcommand{\todoobinna}[1]{\annote{TODO-Obinna}{#1}}
+%
+\newcommand{\gabriel}[1]{\annote{Gabriel}{#1}}
+\newcommand{\todogabriel}[1]{\annote{TODO-Gabriel}{#1}}
+
+\newcommand{\bryan}[1]{\annote{Bryan}{#1}}
+\newcommand{\todobryan}[1]{\annote{TODO-Bryan}{#1}}
+
+\newcommand{\all}[1]{\annote{all}{#1}}
+\newcommand{\todoall}[1]{\annote{TODO-All}{#1}}
+
 \usepackage{listings}
 \usepackage{caption}
 \usepackage{regexpatch}% http://ctan.org/pkg/regexpatch
@@ -82,16 +97,33 @@
 %  {}
 \makeatother
 
+%intro motivation H/ related work O Bi/ system model P/ rSLA conceptual model K/ rSLA language K/ implementation M / case study ameriprise K Br/ conclusions All
+
 \begin{document}
-\input{Introduction}
 
-\input{Problem}
+\input{Introduction} 
 
-\input{DSL}
+\input{Motivation}
 
-\input{Runtime}
+\input{Related}
+
+\input{SystemModel}
+
+\input{Conceptual}
+
+\input{Language}
+
+\input{Implementation}
 
 \input{Deployment}
+
+\input{Conclusions}
+ 
+%\input{Introduction}
+%\input{Problem}
+%\input{DSL}
+%\input{Runtime}
+%\input{Deployment}
 
 \bibliographystyle{splncs}
 

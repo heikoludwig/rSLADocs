@@ -1,4 +1,4 @@
-\section{rSLA runtime engine}\label{runtime}
+\section{rSLA implementation}\label{runtime} \todomohamed{rSLA implementation}
 
 The rSLA is implemented as a DSL for cloud SLAs. The rSLA programming library, currently, provides support for the following SLA management operations that take place while a provisioned service is running:
 \begin{enumerate}
@@ -85,13 +85,15 @@ When the rSLA engine reads an rSLA script file and generates a new SLA object, t
 
 On SLA activation, the rSLA engine collects all base metrics that are included under the new SLA and activates them by sending their schedule and id to a scheduler. The scheduler uses the base metric input to create scheduling events for each of the base metrics. 
 
-In rSLA composite metrics do not include a schedule as the computation of their values depends from SLO evaluation events. The SLO definition specifies a schedule for the evaluation of precondition and objective expressions. Moreover, a scheduler orchestrates notification processes that send evaluation reports on scheduled intervals.
+In rSLA, composite metrics do not include a schedule because the computation of their values depends from SLO evaluation events. The SLO definition specifies a schedule for the evaluation of precondition and objective expressions. Moreover, a scheduler orchestrates notification processes that send evaluation reports on scheduled intervals.
 
-Currently, rSLA uses the rufus-scheduler\cite{\url{https://github.com/jmettraux/rufus-scheduler}} that is an in-memory Ruby scheduler.
+The orchestration of scheduling events represents a topic of on-going work. Currently, rSLA uses the rufus-scheduler that is an in-memory Ruby scheduler. 
 
 \subsection{service level evaluation}
 
+In an rSLA runtime environment, service level evaluation takes place at scheduled intervals. The frequency of service level evaluation is determined by the schedule attributes in the SLO definition. As discussed in Section \ref{dsl}, the definition of a service level objective encloses the description of a precondition and of an objective expressions. These two expressions that follow sequential logic, define the evaluation conditions that designate if the state of an SLO is healthy or not.
 
+We can symbolically define such expressions as the union of composite metric values, hence 
 
 
 \subsection{notification reports}
