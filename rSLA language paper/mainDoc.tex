@@ -95,11 +95,60 @@
 %  \xpatchcmd*{\lst@MakeCaption}{lol}{lor}{}{}%
 %  \lstset{basicstyle=\small\normalfont\sffamily, breaklines=true,  captionpos=b, mathescape=true, #1}}
 %  {}
+   
+\newcommand{\keywords}[1]{\par\addvspace\baselineskip
+\noindent\keywordname\enspace\ignorespaces#1}
 \makeatother
 
 %intro motivation H/ related work OBi/ system model P/ rSLA conceptual model K/ rSLA language K/ implementation M / case study ameriprise K Br/ conclusions All
 
 \begin{document}
+\mainmatter  % start of an individual contribution
+
+% first the title is needed
+\title{rSLA: Monitoring SLAs in dynamic service environments}
+
+% the name(s) of the author(s) follow(s) next
+%
+% NB: Chinese authors should write their first names(s) in front of
+% their surnames. This ensures that the names appear correctly in
+% the running heads and the author index.
+%
+
+
+
+
+
+
+
+
+
+\author{Heiko Ludwig\and Mohamed Mohamed\and Katerina Stamou\and\\ Nagapramod Mandagere\and
+Bryan Langston\and Gabriel Alatorre\and\\ Hiroaki Nakamura\and
+Obinna Anya\and Alexander Keller}
+%
+\authorrunning{H. Ludwig et al.}
+% (feature abused for this document to repeat the title also on left hand pages)
+
+% the affiliations are given next; don't give your e-mail address
+% unless you accept that it will be published
+\institute{IBM Research\\
+Email:\{hludwig, mmohamed, stamou, pramod, bryanlan, galatorr, obanya, alexk\}@us.ibm.com\\
+{hnakamur@jp.ibm.com}}
+
+%
+% NB: a more complex sample for affiliations and the mapping to the
+% corresponding authors can be found in the file "llncs.dem"
+% (search for the string "\mainmatter" where a contribution starts).
+% "llncs.dem" accompanies the document class "llncs.cls".
+%
+
+%\toctitle{Lecture Notes in Computer Science}
+%\tocauthor{Authors' Instructions}
+\maketitle
+
+\input{Abstract}
+
 
 \input{toadd}
 
@@ -115,17 +164,14 @@
 
 \input{Language}
 
+\input{Deployment}
+
 \input{Implementation}
 
-\input{Deployment}
 
 \input{Conclusions}
  
-%\input{Introduction}
-%\input{Problem}
-%\input{DSL}
-%\input{Runtime}
-%\input{Deployment}
+
 
 \bibliographystyle{splncs}
 
