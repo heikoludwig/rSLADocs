@@ -1,33 +1,42 @@
-\section{rSLA DSL}
-\label{dsl} \todokatrina{rSLA language}
-alphabet, vocabulary, language structure
+\section{rSLA language}
 
-production rules
+Cloud SLA management can be costly. A provider needs to control resources that are used by multiple tenants. Every tenant agrees on service levels that can be different from those of other customers. To guarantee service level compliance, a provider monitors service level values and schedules measurement and evaluation operations for all active service level agreements. 
 
-\subsection{rSLA language structure, alphabet}
+Such practices require instrumentation of monitoring, scheduling and data storage tools that can be tedious to deploy for someone unfamiliar with IT. In addition, such practices are performed systematically.  A semantic vocabulary is required to orchestrate their processing. 
 
-The rSLA language follows the semantic decomposition of the WSLA specification \cite{wsla}, where an SLA takes the form of a hierarchical tree with a single root node and numerous uni-directional edges. In an rSLA tree, the root node represents an SLA object. Figure \ref{rSLA_diag} illustrates diagrammatically the rSLA vocabulary as a tree of objects that the DSL implements. Listing \ref{lst} explains the rSLA tree using set notation to highlight the nesting between language objects. Such nesting is inherited from the WSLA specification \cite{wsla}.
+The rSLA language can be deployed as a cloud service and provide all such service level management practices on-demand. On top, such deployment in a cloud environment is inexpensive because rSLA has minimal external tool dependencies. 
 
-\begin{minipage}{0.5\textwidth}
-\begin{figure}[H]
-\includegraphics[width=1.0\textwidth]{pics/rslaobject}
-\caption{\label{rslaobject} rSLA DSL object diagram}
+%alphabet, vocabulary, language structure, production rules 
+%add reference to the rSLA spec
+%conceptual model on how we think about metrics, services, SLOs, Xlets
+
+\subsection{rSLA language conceptual model}
+%notion of service, metric in the abstract
+A service, in an rSLA runtime environment, is described by its provisioning compliance levels, which in turn are decomposed into multifarious service management elements. The rSLA language follows the semantic decomposition of the WSLA specification \cite{wsla}, where an SLA takes the form of a directed graph that has a single root vertex. The root node is connected to three vertices that denote primary branches of the hierarchical tree.
+
+In an rSLA tree, the root vertex represents a single SLA object. Figure \ref{treegraph} illustrates programming objects of the rSLA language. Semantic connections between such objects compose an rSLA tree (Figure \ref{rslaobject}). Formalizing such tree as a directed graph helps with the structured management of either vertices or edges (Figure \ref{rslagraph}).
+
+\begin{figure}
+        \centering
+        \begin{subfigure}[b]{0.5\textwidth}
+                \includegraphics[height=1.2in]{pics/rslaobject}
+                \caption{rSLA object tree}
+                \label{rslaobject}
+        \end{subfigure}%
+        \begin{subfigure}[b]{0.5\textwidth}
+                \includegraphics[height=1.2in]{pics/rslagraph}
+                \caption{rSLA vocabulary formalization}
+                \label{rslagraph}
+        \end{subfigure}
+        \caption{rSLA vocabulary}\label{treegraph}
 \end{figure}
-\end{minipage} \hfill
-\begin{minipage}{0.5\textwidth}
-\begin{lstlisting}[basicstyle=\small\normalfont\sffamily, breaklines=true,  captionpos=b, mathescape=true, caption=rSLA vocabulary, label=lst]
-SLA $\supset$ { BaseMetric+, CompositeMetric*, SLO+ }
-BaseMetric $\supset$ { MeasurementDirective, Observation*, Schedule* }
-CompositeMetric $\supset$ { Expression* }
-SLO $\supset$ { Expression*, Action*, Evaluation*, Schedule* }
-\end{lstlisting}
-\end{minipage}
 
 Nodes that are close to the tree root in Figure \ref{rslaobject}, designate SLA branches like base, composite metrics and service level objectives. Edges between nodes are uni-directed to illustrate the rSLA tree hierarchy. The edge direction points to the nested element in the hierarchical relationship. 
 Edges in Figure \ref{rslaobject} are labeled with +, * or number symbols to indicate that the multiplicity of nested objects. Hence, an SLA can be defined by sets of base, composite metric and SLO objects.
 
-In the rSLA alphabet nested relationships denote inclusive associations between objects. For example, an SLA includes base, composite metrics as well as SLOs. As shown in Figure \ref{rslaobject}, edges between  rSLA objects do not share same multiplicity rules. The rSLA DSL follows the WSLA 
-specification \cite{wsla} with respect to the definition of rSLA objects and of their basic attributes.
+In an rSLA runtime environment, a base metric is represented by a restful endpoint that designates a URI source for reading metric data values. A base metric is also described by sets of time-series data values that are derived by the metric measurement. On the other hand, a composite metric represents the computation result from combining either a single pair of data values or multiple data value sets. 
+
+In the rSLA alphabet nested relationships denote inclusive associations between objects. For example, an SLA includes base, composite metrics as well as SLOs. As shown in Figure \ref{rslaobject}, edges between  rSLA objects do not share same multiplicity rules. 
 
 rSLA notification and timeSeries objects are not initially required to build and run SLA instances in a cloud environment, but they may be required while one or more SLA management tasks are processed. Such objects are created by service level management operations like statistical analysis of data coming from monitoring or automated notification reports on scheduled events of service level evaluation. 
 
@@ -40,13 +49,13 @@ The rSLA DSL uses production rules in Backus-Naur form (BNF) notation to describ
 In the BNF grammar, every rule is decomposed into another set of rules and literals. The symbol "::=" refers to \textit{is defined} or \textit{is produced by}. Literal or terminal symbols are denoted as "literal" and non-literal symbols are enclosed in brackets $<>$.
 
 Grammar \ref{slobnf} illustrates an excerpt of the rSLA BNF production rules for the generation of an SLO object. Service level objectives (SLOs) describe promises from a provider to a customer with respect to service provisioning levels\cite{wsla}. An SLA is defined by one or more SLOs. The right side of Line 1 in Grammar \ref{slobnf} summarizes the block of statements that the rSLA DSL requires as input for the creation of a new SLO object.
-\begin{grammar}[caption= Service level objective (SLO) production rules, label=slobnf]
+\begin{lstlisting}[caption= Service level objective (SLO) production rules, label=slobnf]
 <SLO> ::= "slo" "do" <name> <precondition> <objective> <schedule> "end" ;
 <name>::= "name" <string> ;
 <precondition>::= <expression> ;
 <objective> ::= <expression> ;
 <schedule> ::= "schedule" "do" <frequency> <unit> <method> "end";
-\end{grammar} 
+\end{lstlisting} 
 An SLO object has a name that is represented by a string. An SLO is also specified by a precondition and by an objective that in the rSLA grammar are denoted with the symbol $<$expression$>$. 
 The rSLA language supports the free formation of valid ruby statements. Free-formatted statements define expression objects. In the rSLA grammar an expression object is represented as a non-literal symbol that is further refined into statement combinations. The decomposition of a non-literal expression may produce various statements that associate both literal and non-literal symbols . 
 
@@ -57,7 +66,7 @@ An SLO object also embeds in its definition one or more schedules for its evalua
 \subsection{rSLA editing}\label{editing}
 
 The rSLA DSL exposes ruby programming blocks for the production of SLO objects. A DSL user can edit and extend such programming blocks according to domain specific needs. An example of such a ruby programming block for the creation of an SLO object is illustrated by rSLA coding block \ref{slob}.
-\begin{block}[caption=SLO definition, label=slob]
+\begin{lstlisting}[caption=SLO definition, label=slob]
 slo do
      name "CpuUtil"
      precondition do CPUutilization.value<15 end
@@ -68,7 +77,7 @@ slo do
     	method "every"
     end
 end	
-\end{block}
+\end{lstlisting}
 
 The SLO definition of \ref{slob} provides a configuration sample for the generation of SLO objects with the rSLA language. In the ruby block, precondition and objective expressions are defined using both non-literal and literal symbols. In this case, non-literal terms refer to other rSLA objects. For example in the precondition statement, an expression is defined by stating a condition for the numeric value of a CPUutilization rSLA object. Similarly, the objective sets a condition for the numeric value of a CPUmetric object.
 

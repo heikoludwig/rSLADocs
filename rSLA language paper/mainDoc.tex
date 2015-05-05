@@ -11,17 +11,22 @@
 \usepackage{mdwmath}
 %\usepackage{mdwtab}
 
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{subfig} 
+
+
 \usepackage{fixltx2e}
 \usepackage{stfloats}
 \usepackage{float}
 \usepackage{graphicx} % Required for the inclusion of images
 \usepackage{amsmath} % Required for some math elements 
-\usepackage{caption}
+%\usepackage{caption}
 
 \usepackage{url}
 \usepackage{algorithmic}
 \usepackage{enumitem}
-\usepackage{subfig}
+%\usepackage{subfigure}
 \usepackage{comment}
 \makeatletter
 
@@ -59,48 +64,10 @@
 \newcommand{\todoall}[1]{\annote{TODO-All}{#1}}
 
 \usepackage{listings}
-\usepackage{caption}
-\usepackage{regexpatch}% http://ctan.org/pkg/regexpatch
-
-\makeatletter
-\newcommand{\lstlistgrammar}{List of rSLA grammars}
-\lst@UserCommand\lstlistgrammar{\bgroup
-    \let\contentsname\lstlistgrammarname
-    \let\lst@temp\@starttoc \def\@starttoc##1{\lst@temp{loc}}%
-    \tableofcontents \egroup}
-\lstnewenvironment{grammar}[1][]{%
-  \renewcommand{\lstlistingname}{Grammar}%
-  \xpatchcmd*{\lst@MakeCaption}{lol}{loc}{}{}%
-  \lstset{basicstyle=\small\normalfont\sffamily, breaklines=true,  captionpos=b, mathescape=true,
-  xleftmargin=6pt, framexleftmargin=6pt, framexrightmargin=6pt, numbers=left, numbersep=5pt,
-  numberstyle=\tiny, #1}}
-  {}
-\newcommand{\lstlistblock}{List of rSLA coding blocks}
-\lst@UserCommand\lstlistblock{\bgroup
-    \let\contentsname\lstlistblock
-    \let\lst@temp\@starttoc \def\@starttoc##1{\lst@temp{lor}}%
-    \tableofcontents \egroup}
-\lstnewenvironment{block}[1][]{%
-  \renewcommand{\lstlistingname}{rSLA coding block}%
-  \xpatchcmd*{\lst@MakeCaption}{lol}{lor}{}{}%
-  \lstset{language=Ruby, basicstyle=\ttfamily\small,frame=none, #1}}
-  {}
-%\newcommand{\lstlistalgo}{rSLA logic}
-%\lst@UserCommand\lstlistalgo{\bgroup
-%    \let\contentsname\lstlistalgoname
-%    \let\lst@temp\@starttoc \def\@starttoc##1{\lst@temp{lor}}%
-%    \tableofcontents \egroup}
-%\lstnewenvironment{lstlistalgo}[1][]{%
-%  \renewcommand{\lstlistingname}{rSLA logic}%
-%  \xpatchcmd*{\lst@MakeCaption}{lol}{lor}{}{}%
-%  \lstset{basicstyle=\small\normalfont\sffamily, breaklines=true,  captionpos=b, mathescape=true, #1}}
-%  {}
    
 \newcommand{\keywords}[1]{\par\addvspace\baselineskip
 \noindent\keywordname\enspace\ignorespaces#1}
 \makeatother
-
-%intro motivation H/ related work OBi/ system model P/ rSLA conceptual model K/ rSLA language K/ implementation M / case study ameriprise K Br/ conclusions All
 
 \begin{document}
 \mainmatter  % start of an individual contribution
@@ -114,14 +81,6 @@
 % their surnames. This ensures that the names appear correctly in
 % the running heads and the author index.
 %
-
-
-
-
-
-
-
-
 
 \author{Heiko Ludwig\and Mohamed Mohamed\and Katerina Stamou\and\\ Nagapramod Mandagere\and
 Bryan Langston\and Gabriel Alatorre\and\\ Hiroaki Nakamura\and
@@ -150,28 +109,23 @@ Email:\{hludwig, mmohamed, stamou, pramod, bryanlan, galatorr, obanya, alexk\}@u
 \input{Abstract}
 
 
-\input{toadd}
+%\input{toadd}
 
-\input{Introduction} 
+%\input{Introduction} 
 
-\input{Motivation}
+%\input{Motivation}
 
 \input{Related}
 
-\input{SystemModel}
-
-\input{Conceptual}
+%\input{SystemModel}
 
 \input{Language}
 
-\input{Deployment}
-
-\input{Implementation}
-
-
-\input{Conclusions}
- 
-
+%\input{Deployment}
+%
+%\input{Implementation}
+%
+%\input{Conclusions}
 
 \bibliographystyle{splncs}
 
