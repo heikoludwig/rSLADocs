@@ -22,12 +22,12 @@ At the reception of a new SLA, rSLA Service interprets the file and creates ruby
 On the activation of an SLA, rSLA Service orchestrates all the needed operations to activate and manage the SLA life cycle. It starts by scheduling data collection for base 
 metrics. As shown in Figure~\ref{fig:runtime}, based on the defined schedules, the scheduler triggers the needed rSLA Service interfaces. This latter will then invoke the 
 Monitoring Xlets to collect new observations for the related base metrics. Afterwards, the observations are persisted in Cloudant. Similarly, on the schedule of an SLO, the 
-Scheduler triggers a rSLA Service interface for SLO evaluation. rSLA will then use its mechanics to evaluate the data related to the specific SLO. This evaluation implies 
-eventually the usage of map-reduce functions offered by Cloudant. We made this decision in order to delegate all the possible parallel processing to Cloudant and benefit from its 
-efficiency. Afterwards, rSLA Service generates JSON notifications representing the results of the evaluation. These notifications will be sent to the Notification Xlet for 
+Scheduler triggers a rSLA Service interface for SLO evaluation. rSLA will then evaluate the data related to the specific SLO. This evaluation implies 
+eventually the usage of map-reduce functions offered by Cloudant. We made this decision in order to delegate all the possible parallel processings to Cloudant and benefit from its 
+efficiency. Afterwards, rSLA Service generates JSON notifications representing the results of the evaluation. These notifications are sent to the Notification Xlet for 
 formatting and reporting to the client.   
 \subsection{rSLA Xlets}
-During its life-cycle, the SLA service requires different services to ensure the management of SLAs. These services are eventually offered as services through Bluemix PaaS. At the 
+During its life-cycle, rSLA Service requires different services to ensure the management of SLAs. These services are eventually offered as services through Bluemix PaaS. At the 
 time being, rSLA uses one offered service for persistence and a list of services for monitoring and reporting. These latter, are provided as Xlets. An Xlet is a light weight 
 application offered as a service through Bluemix PaaS. This application is designed to facilitate the integration of different offered services spanning over the different layers 
 of the Cloud by providing a generic REST API. An Xlet is customized according to its role in the overall system. As shown in Figure~\ref{fig:xlet}, each Xlet provides three 
