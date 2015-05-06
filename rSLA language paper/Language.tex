@@ -1,20 +1,24 @@
 \section{rSLA language}
 
-Cloud SLA management can be costly. A provider needs to control resources that are used by multiple tenants. Every tenant agrees on service levels that can be different from those of other customers. To guarantee service level compliance, a provider monitors service level values and schedules measurement and evaluation operations for all active service level agreements. 
+rSLA is a domain specific language for the service level management of cloud SLAs. rSLA follows standard ruby programming rules and implements simple production rules for the editing and processing of SLAs in a cloud environment. The complete specification on the rSLA language structure, production rules and implemented class functionality can be retrieved from \cite{rSLAspec}.
 
-Such practices require instrumentation of monitoring, scheduling and data storage tools that can be tedious to deploy for someone unfamiliar with IT. In addition, such practices are performed systematically.  A semantic vocabulary is required to orchestrate their processing. 
+Currently, the language implements rSLA classes that are required for the management of cloud services that are leased by a real customer. The existing rSLA classes implement objects that refer to the service level objectives defined by the customer in the service level agreement.   
 
-The rSLA language can be deployed as a cloud service and provide all such service level management practices on-demand. On top, such deployment in a cloud environment is inexpensive because rSLA has minimal external tool dependencies. 
+The rSLA language inherits semantic attributes of the WSLA specification \cite{wsla} and can be decomposed into a hierarchical tree that denotes relationships between rSLA programming objects. 
+ The next paragraphs discuss the rSLA conceptual model and summarize production rules for the creation of rSLA objects. Last but not least, we describe how DSL users can create rSLA objects and customize their attributes using an editor of their choice. 
 
 %alphabet, vocabulary, language structure, production rules 
-%add reference to the rSLA spec
 %conceptual model on how we think about metrics, services, SLOs, Xlets
 
-\subsection{rSLA language conceptual model}
+\subsection{Conceptual model}
 %notion of service, metric in the abstract
-A service, in an rSLA runtime environment, is described by its provisioning compliance levels, which in turn are decomposed into multifarious service management elements. The rSLA language follows the semantic decomposition of the WSLA specification \cite{wsla}, where an SLA takes the form of a directed graph that has a single root vertex. The root node is connected to three vertices that denote primary branches of the hierarchical tree.
+In an rSLA runtime environment a service is described by its provisioning compliance levels, which in turn are decomposed into multifarious service level management elements. The rSLA language follows the semantic decomposition of the WSLA specification \cite{wsla}, where an SLA takes the form of a directed graph that has a single root vertex. The root node is connected to three vertices that denote primary branches of the hierarchical tree. 
 
-In an rSLA tree, the root vertex represents a single SLA object. Figure \ref{treegraph} illustrates programming objects of the rSLA language. Semantic connections between such objects compose an rSLA tree (Figure \ref{rslaobject}). Formalizing such tree as a directed graph helps with the structured management of either vertices or edges (Figure \ref{rslagraph}).
+In an rSLA tree, the root vertex represents a single SLA object. An SLA can be defined by sets of base, composite metrics and SLO objects. Figure \ref{rslaobject} illustrates programming objects of the rSLA language. Semantic connections between such objects compose an rSLA tree. Figure \ref{rslagraph} formalizes an rSLA tree as a directed graph and highlights immediate attributes of rSLA objects.
+
+As illustrated in Figure \ref{rslagraph} an rSLA tree can be defined by a set of vertices $V$ and a set of edges $E$, where vertices represent rSLA tree branches and edges connections between such branches. The set of SLA vertices in an rSLA tree contains exactly one SLA object and one or more base metrics and service level objectives. The SLA object represents the root of the directed graph. 
+
+There is no overlapping between rSLA language objects. Conceptually every object is related with other rSLA objects for the processing of SLA management operations. 
 
 \begin{figure}
         \centering
@@ -32,7 +36,7 @@ In an rSLA tree, the root vertex represents a single SLA object. Figure \ref{tre
 \end{figure}
 
 Nodes that are close to the tree root in Figure \ref{rslaobject}, designate SLA branches like base, composite metrics and service level objectives. Edges between nodes are uni-directed to illustrate the rSLA tree hierarchy. The edge direction points to the nested element in the hierarchical relationship. 
-Edges in Figure \ref{rslaobject} are labeled with +, * or number symbols to indicate that the multiplicity of nested objects. Hence, an SLA can be defined by sets of base, composite metric and SLO objects.
+Edges in Figure \ref{rslaobject} are labeled with +, * or number symbols to indicate that the multiplicity of nested objects. 
 
 In an rSLA runtime environment, a base metric is represented by a restful endpoint that designates a URI source for reading metric data values. A base metric is also described by sets of time-series data values that are derived by the metric measurement. On the other hand, a composite metric represents the computation result from combining either a single pair of data values or multiple data value sets. 
 
