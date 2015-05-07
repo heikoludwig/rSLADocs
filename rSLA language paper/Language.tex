@@ -2,8 +2,6 @@
 
 rSLA is a domain specific language for the service level management of cloud SLAs. rSLA follows standard ruby programming rules and implements simple production rules for the editing and processing of SLAs in a cloud environment. The complete specification on the rSLA language structure, production rules and implemented class functionality can be retrieved from \cite{rSLAspec}.
 
-Currently, the language implements rSLA classes that are required for the management of cloud services that are leased by a real customer. The existing rSLA classes implement objects that refer to the service level objectives defined by the customer in the service level agreement.   
-
 The rSLA language inherits semantic attributes of the WSLA specification \cite{wsla} and can be decomposed into a hierarchical tree that denotes relationships between rSLA programming objects. 
  The next paragraphs discuss the rSLA conceptual model and summarize production rules for the creation of rSLA objects. Last but not least, we describe how DSL users can create rSLA objects and customize their attributes using an editor of their choice. 
 
@@ -18,25 +16,26 @@ In an rSLA tree, the root vertex represents a single SLA object. An SLA can be d
 
 As illustrated in Figure \ref{rslagraph} an rSLA tree can be defined by a set of vertices $V$ and a set of edges $E$, where vertices represent rSLA tree branches and edges connections between such branches. The set of SLA vertices in an rSLA tree contains exactly one SLA object and one or more base metrics and service level objectives. The SLA object represents the root of the directed graph. 
 
-There is no overlapping between rSLA language objects. Conceptually every object is related with other rSLA objects for the processing of SLA management operations. 
+There is no overlapping between rSLA language objects. Conceptually every object is related to other rSLA objects for the processing of SLA management operations. 
 
 \begin{figure}
+    \centering
+    \begin{subfigure}
         \centering
-        \begin{subfigure}{5cm}
-                \includegraphics[height=3cm]{pics/rslaobject}
-                \caption{rSLA object tree}
-                \label{rslaobject}
-        \end{subfigure}%
-        \begin{subfigure}{5cm}
-              %  \includegraphics[height=3cm]{pics/rslagraph}
-                \caption{rSLA vocabulary formalization}
-                \label{rslagraph}
-        \end{subfigure}
-        \caption{rSLA vocabulary}\label{treegraph}
+        \includegraphics[height=1.2in]{pics/rslaobject}
+        \caption{rSLA object tree}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}
+        \centering
+        \includegraphics[height=1.2in]{pics/rslagraph}
+        \caption{rSLA vocabulary formalization}
+    \end{subfigure}
+    \caption{rSLA vocabulary}
 \end{figure}
 
 Nodes that are close to the tree root in Figure \ref{rslaobject}, designate SLA branches like base, composite metrics and service level objectives. Edges between nodes are uni-directed to illustrate the rSLA tree hierarchy. The edge direction points to the nested element in the hierarchical relationship. 
-Edges in Figure \ref{rslaobject} are labeled with +, * or number symbols to indicate that the multiplicity of nested objects. 
+Edges in Figure \ref{rslaobject} are labeled with +, * or number symbols to indicate the multiplicity of nested objects. 
 
 In an rSLA runtime environment, a base metric is represented by a restful endpoint that designates a URI source for reading metric data values. A base metric is also described by sets of time-series data values that are derived by the metric measurement. On the other hand, a composite metric represents the computation result from combining either a single pair of data values or multiple data value sets. 
 
@@ -44,7 +43,7 @@ In the rSLA alphabet nested relationships denote inclusive associations between 
 
 rSLA notification and timeSeries objects are not initially required to build and run SLA instances in a cloud environment, but they may be required while one or more SLA management tasks are processed. Such objects are created by service level management operations like statistical analysis of data coming from monitoring or automated notification reports on scheduled events of service level evaluation. 
 
-The rSLA DSL exposes such objects as structured programming blocks that a user can edit and modify according to specific needs. The use and characteristics of rSLA programming blocks are analyzed in Section \ref{editing}. Moreover, a user can introduce new elements in the rSLA vocabulary by integrating their definition in the rSLA programming library. 
+The rSLA DSL exposes such objects as structured programming blocks that a user can edit and modify according to specific needs. The use and characteristics of rSLA programming blocks are analyzed in Section \ref{editing}. A user can introduce new elements in the rSLA vocabulary by integrating their definition in the rSLA programming library. 
 
 \subsection{rSLA language production rules}
 
