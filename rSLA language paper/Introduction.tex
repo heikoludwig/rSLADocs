@@ -6,6 +6,27 @@
 introduction should be clear: overview of paper, 
 value proposition, overall motivation
 
+
+Today's application environments combine Cloud and on-premise infrastructure as well as platforms and services from different providers to enable the quick development and 
+delivery of solutions to their intended users. For example, a Web or mobile application of an online merchant might be deployed on a cloud-based Platform-as-a-Service, use 
+persistence services within the platform, run ID and login management through a third-party Web service, and be monitored by various in-house logistics systems. The ability to use 
+Cloud platforms to stand up applications in a short time frame, the - now - wide availability of services, and the application of a continuous deployment model has led to a much 
+more dynamic application environment, changing at high velocity.
+
+Managing quality of service has become more important and also poses new challenges in this more complex and dynamic environment. The more external service vendors involved the 
+less control an application owner has and must rely on the quality commitments of his or her vendors in the form of a Service Level Agreement (SLA). Adding to the complexity, 
+services from different vendors expose different instrumentation and use different service management systems making it difficult to collect and aggregate performance data for 
+service level objective evaluation. In addition, the increasing dynamism of application environments entails that SLA monitoring must be set up at the same speed of changes to the 
+application environment.  
+
+Current SLA management systems often lack the flexibility to deal with instrumentation of heterogeneous environments and the agility to set up a new SLA instantaneously. This 
+paper proposes the rSLA service that is both flexible enough to instrument virtually any environment and agile enough to scale and update SLA management as needed. Given an SLA 
+expressed using a formal SLA specification, rSLA sets up the monitoring infrastructure and starts monitoring compliance. Using rSLA the time of setting up SLA compliance monitoring 
+of application environments involving infrastructure, platform, and application services can be significantly reduced and aligned with typical application.
+
+
+
+
 rSLA is a domain specific language (DSL) for expressing and managing service level agreements (SLAs) in a cloud environment. rSLA is coded in Ruby \cite{ruby}, a dynamic language that enables rapid prototyping and application development. 
 
 The rSLA DSL is described by an alphabet and by production rules that help to extend the language. The rSLA programming library provides a runtime engine for deploying and running an rSLA service in a cloud environment.
