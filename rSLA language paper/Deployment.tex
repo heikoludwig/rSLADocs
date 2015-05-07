@@ -1,22 +1,24 @@
 \section{rSLA deployment }
 
 rSLA Service has literally been evolved on the IBM Bluemix PaaS as a ruby Sinatra application. As shown in Figure~\ref{fig:runtime}, the different components involved in SLA 
-management are deployed in Bluemix. The following section will explain further how rSLA works in conjunction with the other services (Scheduler, Cloudant, Xlets) in a real use 
-case. 
-
-
+management are deployed in Bluemix. The following section will explain further how rSLA interoperates with the other services (Scheduler, Cloudant, Xlets) in a real use case. 
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{pics/runtime.png}
+\includegraphics[width=\textwidth]{pics/runtime.pdf}
 \caption{\label{fig:runtime} rSLA runtime}
 \end{figure}
 
 
-\subsection{Ameriprise pilot}\todokatrina{use case}
-use case description
-Currently, the rSLA service is deployed on the IBM Bluemix PaaS platform for a customer, who agreed on 
-Currently, the language implements rSLA classes for the management of cloud services that are leased by a real customer. The existing rSLA classes implement objects that refer to the service level objectives defined by the customer in the service level agreement. 
+\subsection{Ameriprise pilot}
+
+Currently, the rSLA service supports the management of cloud services that are leased by an existing customer. In one agreement, the IBM customer migrated a workload from a customer-owned, on-premise data center environment to the IBM cloud.  Along with the move, the customer required the monitoring of seven custom SLAs that had never been offered previously by the service provider in the cloud.
+
+Each of the seven running SLAs consist of one base metric and one service level objective. The rSLA service that is running on the Bluemix platform, is aware of these seven agreements' context as such information is parsed by the rSLA engine to activate and initiate the measurement of involved base metrics. The rSLA service monitors, measures, evaluates and reports the service level status of the seven involved SLOs on a daily basis to the customer. 
+
+%can we add a graph showing statistics on the rSLA service usage/performance since we started the ameriprise pilot? Bluemix?
+%or from cloudant?
+
 
 
 \subsection{rSLA service}

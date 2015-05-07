@@ -28,10 +28,24 @@ There is no overlapping between rSLA language objects. Conceptually every object
     ~ 
     \begin{subfigure}
         \centering
+<<<<<<< HEAD
         \includegraphics[height=1.2in]{pics/rslagraph}
         \caption{rSLA vocabulary formalization}
     \end{subfigure}
     \caption{rSLA vocabulary}
+=======
+        \begin{subfigure}[h]{0.5\textwidth}
+                \includegraphics[height=3cm]{pics/rslaobject}
+                \caption{rSLA object tree}
+                \label{rslaobject}
+        \end{subfigure}%
+        \begin{subfigure}[h]{0.5\textwidth}
+               \includegraphics[height=3cm]{pics/rslagraph}
+                \caption{rSLA vocabulary formalization}
+                \label{rslagraph}
+        \end{subfigure}
+        \caption{rSLA vocabulary}\label{treegraph}
+>>>>>>> e68f71527238ec7ec353ab74d699c92e4a764d51
 \end{figure}
 
 Nodes that are close to the tree root in Figure \ref{rslaobject}, designate SLA branches like base, composite metrics and service level objectives. Edges between nodes are uni-directed to illustrate the rSLA tree hierarchy. The edge direction points to the nested element in the hierarchical relationship. 
