@@ -1,47 +1,54 @@
 \section{Introduction}\label{sec:introduction}
-\todoheiko{Introduction, Motivation, Abstract}
-
-\todogabriel{Introduction, Motivation, Abstract}
-
-introduction should be clear: overview of paper, 
-value proposition, overall motivation
 
 
-Today's application environments combine Cloud and on-premise infrastructure as well as platforms and services from different providers to enable the quick development and 
+Cost, availability and on-demand scaling have accelerated customer adoption of different application deployment models. Today's application environments combine Cloud and on-premise infrastructure as well as platforms and services from different providers to enable the quick development and 
 delivery of solutions to their intended users. For example, a Web or mobile application of an online merchant might be deployed on a cloud-based Platform-as-a-Service, use 
 persistence services within the platform, run ID and login management through a third-party Web service, and be monitored by various in-house logistics systems. The ability to use 
 Cloud platforms to stand up applications in a short time frame, the - now - wide availability of services, and the application of a continuous deployment model has led to a much 
 more dynamic application environment, changing at high velocity.
 
-Managing quality of service has become more important and also poses new challenges in this more complex and dynamic environment. The more external service vendors involved the 
-less control an application owner has and must rely on the quality commitments of his or her vendors in the form of a Service Level Agreement (SLA). Adding to the complexity, 
-services from different vendors expose different instrumentation and use different service management systems making it difficult to collect and aggregate performance data for 
-service level objective evaluation. In addition, the increasing dynamism of application environments entails that SLA monitoring must be set up at the same speed of changes to the 
-application environment.  
+Managing quality of service has become more important in the context of the Cloud and the prolific use of micro-services. The more external service vendors are involved the 
+less control an application owner has over the quality of the delivery of this service and must rely on the quality commitments of his or her vendors in the form of a Service Level Agreement (SLA).
 
-Current SLA management systems often lack the flexibility to deal with instrumentation of heterogeneous environments and the agility to set up a new SLA instantaneously. This 
-paper proposes the rSLA service that is both flexible enough to instrument virtually any environment and agile enough to scale and update SLA management as needed. Given an SLA 
+SLA are widely used in the context of corporate Information Technology (IT) outsourcing. Pracically every outsourcing customer requires his or her vendors to commit to SLAs and holds vendors accountable with financial penalties and rewards for achieving objectives. Objectives typically relate to the performance of systems and services, their availability, and the performance of service processes such as provisioning servers and responding to help desk tickets. Many vendors sell SLA management systems, often as part of service management suites (e.g., IBM Integrated Service Management/ISM) or as Software-as-a-Service (e.g., ServiceNow). In enterprise practice setting up SLA management for a particular area of service and monitoring compliance on an ongoing basis requires substantial integration projects to collect metrics in a data warehouse. Aggregating and adjudicating SLA compliance likewise often requires substantial manual work or ad-hoc scripting.
+
+While this is viable for large outsourcing contracts and all their intricate details this is not a good match for today's application environments using Clouds and services from mulitple vendors. 
+One key problem is the heterogeneity of interfaces.  Services from different vendors expose different instrumentation and use different service management systems making it difficult to collect and aggregate performance data for service level objective evaluation. While system vendor heterogeneity is certainly an issue also within one enterprise it is easier to avoid it and system level standards such as the Common Information Model (CIM) of the Distributed Management Task Force (DMTF) help management systems to interact with servers, network components and the like. Management APIs on a Cloud and service level have not yet undergone such standardization although some schemes have been proposed from DMTF and other groups (CITATIONS).
+
+In addition to heterogeneity, the increasing dynamism of application environments entails that SLA monitoring must be set up at the same speed of changes to the 
+application environment. Continuous deployment, or DevOps, enables constant changes to applications and the binding to new services. Cloud infrastructure and - in particular - platform services enable the deployment of new applications on very short notice. Organizations can respond rapidly to novel needs and change their application environment at a fast pace.
+
+To provide effective SLA management in a Cloud environment, the SLA management system must be able to set up the monitoring of customer-specific SLA terms against a heterogeneous set of service instrumentation in a short amount of time. 
+
+This 
+paper proposes the rSLA service, which is both flexible enough to instrument virtually any environment and agile enough to scale and update SLA management as needed. Given an SLA 
 expressed using a formal SLA specification, rSLA sets up the monitoring infrastructure and starts monitoring compliance. Using rSLA the time of setting up SLA compliance monitoring 
-of application environments involving infrastructure, platform, and application services can be significantly reduced and aligned with typical application.
+of application environments involving infrastructure, platform, and application services can be significantly reduced and aligned with a typical application life-cycle.
+
+The remainder of this paper is organized as follows: The next section discusses related work. Subsequently, we give an overview of the approach, followed by a discussion of the rSLA language and the execution model, including the implementation. In the following section we show in a case study how we applied our approach to a real customer environment. Finally, we summarize and conclude.
 
 
 
 
-rSLA is a domain specific language (DSL) for expressing and managing service level agreements (SLAs) in a cloud environment. rSLA is coded in Ruby \cite{ruby}, a dynamic language that enables rapid prototyping and application development. 
 
-The rSLA DSL is described by an alphabet and by production rules that help to extend the language. The rSLA programming library provides a runtime engine for deploying and running an rSLA service in a cloud environment.
 
-Although the scientific literature provides plentiful results on automated management of SLAs for distributed computing \cite{wsla, wsag}, cloud markets hesitate to adopt such solutions. Provisioning of cloud services is handled either manually or with software tools that do not embrace cloud service characteristics.
 
-Cloud service management does not yet support automated and transparent solutions for the management of leased resources. Additionally, there is no established standard yet for the automatic expression and management of SLAs for cloud services.
-
-rSLA provides a DSL library for the definition of rSLA objects and a runtime engine to create and process such objects. The DSL enables the automated generation of customized SLAs and the transparent management of cloud service compliance.
-
-The rSLA is deployed on the IBM Bluemix platform \cite{bluemix} as a ruby web service using the sinatra gem\footnote{Sinatra, \url{http://www.sinatrarb.com/}}. A pilot version of the language is currently running for an IBM financial client. The monthly results from using the rSLA language to evaluate the service level compliance of resources leased by the client, showcase the rSLA DSL adequacy in managing cloud services.
-
-How is the paper structured
-
--what is the problem that the language solves, motivation to solve this problem
--language structure, alphabet, production rules
--language runtime
--current testing, future testing
+%
+%rSLA is a domain specific language (DSL) for expressing and managing service level agreements (SLAs) in a cloud environment. rSLA is coded in Ruby \cite{ruby}, a dynamic language that enables rapid prototyping and application development. 
+%
+%The rSLA DSL is described by an alphabet and by production rules that help to extend the language. The rSLA programming library provides a runtime engine for deploying and running an rSLA service in a cloud environment.
+%
+%Although the scientific literature provides plentiful results on automated management of SLAs for distributed computing \cite{wsla, wsag}, cloud markets hesitate to adopt such solutions. Provisioning of cloud services is handled either manually or with software tools that do not embrace cloud service characteristics.
+%
+%Cloud service management does not yet support automated and transparent solutions for the management of leased resources. Additionally, there is no established standard yet for the automatic expression and management of SLAs for cloud services.
+%
+%rSLA provides a DSL library for the definition of rSLA objects and a runtime engine to create and process such objects. The DSL enables the automated generation of customized SLAs and the transparent management of cloud service compliance.
+%
+%The rSLA is deployed on the IBM Bluemix platform \cite{bluemix} as a ruby web service using the sinatra gem\footnote{Sinatra, \url{http://www.sinatrarb.com/}}. A pilot version of the language is currently running for an IBM financial client. The monthly results from using the rSLA language to evaluate the service level compliance of resources leased by the client, showcase the rSLA DSL adequacy in managing cloud services.
+%
+%How is the paper structured
+%
+%-what is the problem that the language solves, motivation to solve this problem
+%-language structure, alphabet, production rules
+%-language runtime
+%-current testing, future testing

@@ -1,0 +1,95 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+
+\bibitem{wsag}
+Andrieux, A., Czajkowski, K., Dan, A., Keahey, K., Ludwig, H., Nakata, T.,
+  Pruyne, J., Rofrano, J., Tuecke, S., Xu, M.: {W}eb {S}ervices {A}greement
+  {S}pecification ({WS}-{A}greement) (Sep 2005), available at
+  http://mailman.ogf.org/documents/GFD.107.pdf
+
+\bibitem{lessons}
+Battré, D., Hovestadt, M., Wäldrich, O.: Lessons learned from implementing
+  ws-agreement. In: Wieder, P., Yahyapour, R., Ziegler, W. (eds.) Grids and
+  Service-Oriented Architectures for Service Level Agreements, pp. 23--34.
+  Springer US (2010)
+
+\bibitem{butler}
+Butler, J., Lambea, J., Nolan, M., Theilmann, W., Torelli, F., Yahyapour, R.,
+  Chiasera, A., Pistore, M.: {SLA}s {E}mpowering {S}ervices in the {F}uture
+  {I}nternet. In: {T}he {F}uture {I}nternet, {L}ecture {N}otes in {C}omputer
+  {S}cience, vol. 6656, pp. 327--338. Springer Berlin / Heidelberg (2011)
+
+\bibitem{SNAP}
+Czajkowski, K., Foster, I.T., Kesselman, C., Sander, V., Tuecke, S.: {SNAP}:
+  {A} {P}rotocol for {N}egotiating {S}ervice {L}evel {A}greements and
+  {C}oordinating {R}esource {M}anagement in {D}istributed {S}ystems. In:
+  Revised Papers from the 8th International Workshop on Job Scheduling
+  Strategies for Parallel Processing. JSSPP '02, Springer-Verlag (2002)
+
+\bibitem{dan}
+{D}an, A., {D}avis, D., {K}earney, R., {K}eller, A., {K}ing, R., {K}uebler, D.,
+  {L}udwig, H., {P}olan, M., {S}preitzer, M., {Y}oussef, A.: {W}eb services on
+  demand: {WSLA}-driven automated management. IBM Systems Journal  43,
+  pp.136--158 (2004)
+
+\bibitem{IBM1}
+Dan, A., Ludwig, H., Pacifici, G.: {W}eb service differentiation with service
+  level agreements. White Paper, IBM Corporation  (2003), available at
+  http://www.ibm.com/developerworks/library/ws-slafram
+
+\bibitem{ludwig}
+H.Ludwig, A.Dan, R.Kearney: {C}remona: an architecture and library for creation
+  and monitoring of {WS}-agreements. In: Proc. of the 2nd International
+  Conference on Service Oriented Computing (ICSOC '04). pp. 65--74. ACM (2004)
+
+\bibitem{kouki}
+Kouki, Y., de~Oliveira, F., Dupont, S., Ledoux, T.: A language support for
+  cloud elasticity management. In: Cluster, Cloud and Grid Computing (CCGrid),
+  2014 14th IEEE/ACM International Symposium on. pp. 206--215 (May 2014)
+
+\bibitem{kraska}
+Kraska, T., Hentschel, M., Alonso, G., Kossmann, D.: Consistency rationing in
+  the cloud: pay only when it matters. VLDB Endowment  (2009)
+
+\bibitem{nec}
+Liu, Z., Hacıgumus, H., Moon, H.J., Chi, Y., Hsiung, W.P.: {PMAX}: {T}enant
+  {P}lacement in {M}ultitenant {D}atabases for {P}rofit {M}aximization. In:
+  EDBT (2013)
+
+\bibitem{wsla}
+{L}udwig, H., {K}eller, A., {D}an, A., {K}ing, R., {F}ranck, R.: {W}eb
+  {S}ervice {L}evel {A}greement ({WSLA}) {L}anguage {S}pecification. Tech.
+  rep., IBM Corporation (Jan 2003)
+
+\bibitem{rSLAspec}
+Ludwig, H.: r{SLA} language specification. Tech. rep., IBM research
+  \url{https://hub.jazz.net/project/kat18/rSLADocs} (May 2015), available at
+
+\bibitem{rana}
+Rana, O.F., Warnier, M., Quillinan, T.B., Brazier, F.M.T.: {M}onitoring and
+  {R}eputation {M}echanisms for {S}ervice {L}evel {A}greements. In: Grid
+  Economics and Business Models GECON, pp. 125--139. Grid Economics and
+  Business Models GECON, Springer (2008)
+
+\bibitem{sakr}
+Sakr, S., Liu, A.: {SLA}-{B}ased and {C}onsumer-centric {D}ynamic
+  {P}rovisioning for {C}loud {D}atabases. In: 5th IEEE International Conference
+  on Cloud Computing (2012)
+
+\bibitem{soi}
+SLA@SOI: {D}.{A}1a {R}eference {A}rchitecture for an {SLA} {M}anagement
+  {F}ramework. Tech. rep., EU FP7 (July 2011), available at
+  http://sla-at-soi.eu, accessed October 2011
+
+\bibitem{cslam}
+Torkashvan, M., Haghighi, H.: Cslam: A framework for cloud service level
+  agreement management based on wsla. In: Telecommunications (IST), 2012 Sixth
+  International Symposium on. pp. 577--585 (Nov 2012)
+
+\bibitem{ulhaq}
+Ul~Haq, I., Schikuta, E.: Aggregation patterns of service level agreements. In:
+  Proceedings of the 8th International Conference on Frontiers of Information
+  Technology. FIT '10, ACM (2010)
+
+\end{thebibliography}

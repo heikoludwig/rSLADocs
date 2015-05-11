@@ -2,3 +2,13 @@
 *.log
 
 *.aux
+
+*.out
+
+rSLA language paper/pics/SLXlet.eps
+
+rSLA language paper/mainDoc.pdf
+
+rSLA language paper/mainDoc.synctex.gz
+
+rSLA language paper/mainDoc.synctex.gz(busy)

@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99d (TeX Live 2013)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: mainDoc.aux
+The style file: splncs.bst
+Database file #1: mainDoc.bib
+Warning--I didn't find a database entry for "wsol"
+Warning--I didn't find a database entry for "boualem"
+Warning--I didn't find a database entry for "baset"
+Warning--I didn't find a database entry for "occi"
+Warning--I didn't find a database entry for "nist"
+You've used 17 entries,
+            2785 wiz_defined-function locations,
+            698 strings with 8171 characters,
+and the built_in function-call counts, 10198 in all, are:
+= -- 810
+> -- 404
+< -- 9
++ -- 165
+- -- 147
+* -- 656
+:= -- 1345
+add.period$ -- 25
+call.type$ -- 17
+change.case$ -- 150
+chr.to.int$ -- 0
+cite$ -- 17
+duplicate$ -- 900
+empty$ -- 870
+format.name$ -- 163
+if$ -- 2184
+int.to.chr$ -- 0
+int.to.str$ -- 17
+missing$ -- 195
+newline$ -- 56
+num.names$ -- 36
+pop$ -- 389
+preamble$ -- 1
+purify$ -- 106
+quote$ -- 0
+skip$ -- 233
+stack$ -- 0
+substring$ -- 489
+swap$ -- 470
+text.length$ -- 9
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 68
+warning$ -- 0
+while$ -- 69
+width$ -- 19
+write$ -- 179
+(There were 5 warnings)

@@ -1,8 +1,12 @@
-\section{Conclusions}
-\todoall{conclusions, challenges and on-going work}
+\section{Summary and Conclusions}
 
-section on highlighting the challenges, 
+Today's cloud-based application environments enable their users to deploy and change applications constantly, binding to different services and platforms on short notice. Traditional enterprise SLA management typically requires a complicated setup process lagging far behind the application cycles of a devops environment. Current industry practice to Cloud SLA management often fails to take into account specific customer needs. Approaches for Web and Grid services often fail to deal with interface hererogeneity in an effective way and have a syntax that has proven to be cumbersome to practitioners.
 
-Cloud SLA management can be costly. A provider needs to control resources that are used by multiple tenants. Every tenant agrees on service levels that can be different from those of other customers. To guarantee service level compliance, a provider monitors service level values and schedules measurement and evaluation operations for all active service level agreements. 
+The rSLA approach presented in this paper addresses the efficient specification of SLAs in a formal language and, at the same time, uses the xlet architecture abstractions to overcome issues of heterogeneity.  While reusing some existing concepts such as metrics and SLOs, rSLA makes a number of significant contributions to meet the objective of fast SLA deployment in a Cloud environment: Xlets provide a standard way to refer to and use diverse interfaces. The concept of measurement directives ties base metrics to the way metrics can be obtained through xlets, thereby enabling references to metrics from various interfaces in the language. The design of the rSLA language as a Ruby DSL provides access to a full expression language in a way that is familiar to many target users such as administrators using Chef. 
 
-Such practices require monitoring, scheduling and data storage tools that can be tedious to deploy for someone unfamiliar with IT. In addition, such practices are performed systematically. The rSLA DSL can be deployed as a cloud service and provide such service level management practices following a systematic schedule. The rSLA deployment in a cloud environment is inexpensive and fast as rSLA has minimal external tool dependencies. 
+The approach has been implemented on Bluemix and tried out in a pilot, monitoring IaaS-related SLOs. This has been accomplished much faster than using an enterprise SLA management system and we ere able to deal with a previously unknown management API, which Web service-oriented systems such as WSLA cannot. In addition, the resulting SLAs are actually legible. While we have obtained first results of our approach presented in this paper further work will be required addressing expressiveness of different scenarios, performance, and user acceptance.
+
+
+
+
+

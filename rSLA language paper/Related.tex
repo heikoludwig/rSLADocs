@@ -1,29 +1,20 @@
 \section{Related work}
-rSLA enables rapid cloud deployment of SLA management services. Currently in cloud markets there is no application that provides service level management on-demand, given the availability of a cloud platform.
+Since the  QoS of IT services has been measured and managed since a long time a significant body of existing work must be considered. 
 
-A significant body of work has explored the problem of automated management of SLAs in dynamic service environments. Two main specifications have been proposed, namely Web Service Level Agreement language (WSLA) from IBM \cite{wsla}, and Web Service Agreement (WS-Agreement) from Open Grid Forum \cite{wsag}. WSLA is primarily designed to capture SLAs for web services and uses the XML standard to facilitate automatic service configuration. WS-Agreement inherits language characteristics of the WSLA specification and has been used in numerous grid or cloud research initiative\cite{soi, butler, cslam}. 
+Next to the set of typical IT service SLA management products mentioned in the introduction, many providers of Cloud and networking services provide specific service performance information on their Web site or at an API. This is often on the basis of tiered service offerings, with better quality demanding a higher price. While this typically entails some kind of performance guarantee it is not a client specific SLA, tailored to a client's business needs.
 
+An important part of a solution to automate SLA management is a formal, machine-interpretable representation of the SLA. The research community has explored the problem of automated SLA management in dynamic service environments. Several specifications have been proposed in the Web service and Grid context such as the Web Service Level Agreement language (WSLA) \cite{wsla}, the Web Services Offer Language (WSOL) \cite{wsol} and Web Service Agreement (WS-Agreement) standard of the Open Grid Forum \cite{wsag}. 
 
+WSLA is designed to capture SLAs for web services and is used, among other things, to facilitate automatic service configuration, e.g., to configure load balancers of clustered Web servers. WS-Agreement inherits language characteristics of the WSLA specification and, like WSLA, has been used in numerous grid or cloud research initiatives \cite{soi, butler, cslam, kouki}. 
 
+Early industrial research on web service and utility computing \cite{ludwig, IBM1, dan} introduces the notion of on-demand service provisioning, which the cloud computing paradigm later established as the standard provisioning mode for virtual services. QoS has also often be considered in automated service composition \cite{boualem}.
 
-Early industrial research on web service and utility computing \cite{ludwig, IBM1, dan} introduced the notion of on-demand service provisioning, which the cloud computing paradigm later established as the standard provisioning mode for virtual services.
+Additional work addresses automated SLA negotiation and scheduling on distributed environments \cite{SNAP, lessons}, introduced strategies for SLA monitoring \cite{rana} and conceptual schemas for service level aggregations \cite{ulhaq}. Additionally, the scientific community has looked into solutions for efficient database tenant distribution and workload execution \cite{kraska, nec, sakr}. 
 
-In order to meet the additional challenges posed by the dynamic and complex nature of the cloud environment, the research community has investigated solutions for automated SLA negotiation and scheduling on distributed environments \cite{SNAP, czaj, lessons}, introduced strategies for SLA monitoring \cite{rana} and conceptual schemas for service level aggregations \cite{ulhaq}.
-Additionally, the scientific community has looked into solutions for efficient database tenant distribution and workload execution \cite{kraska, nec, sakr}. 
+The specification work enables the automatic set up of SLA compliance monitoring for the domain they are applied to, e.g., Web services. While reading metrics at specific points of a distributed cluster could be described in some representations such as WSLA there was no prescribed way to address the heterogeneous instrumentation that could be found in today's Cloud scenarios. It was not really necessary because the systems instrumented were assumed to be Web servers, Grid schedulers and so forth.
 
-In the industry, however, cloud providers have not yet adopted automated SLA management practices. Instead, they prefer to use third-party services like ServiceNow \cite{servicenow} or Amazon Redshift \cite{redshift} for their service management and data warehousing needs. Such third party services may also provide service performance analytics and tools for administering and reporting on service level violations.
+\cite{baset} provides a survey on current service level provisioning practices and compares the SLAs of five public cloud service providers. It highlights that so far service providers have not adopted systematic methods to detect and alert their customers on service level violations. On the contrary, current cloud service customers need to verify service level violations on their own. Additionally, Baset elaborates on the definition on service level guarantees for cloud services, which are static to each provider and not custom to the clients' needs.
 
-Other research projects that are relevant to the rSLA context include SLAng [4] and RBSLA [5], which is a rule-based SLA that uses RuleML to define and express SLAs. The 
-
-
- Two efforts, as far as we know, that appear relevant to our work are the Cloud Service Level Agreement (CSLA) proposed by Kouki et al. [6], and the Service Level Management approach for cloud provisioning developed by ServiceNow [7]. 
- 
- Like Kouki et al. and ServiceNow, rSLA offers new approaches to deal with the lack of flexibility support in current SLA management systems, such as dynamic and virtual resource provisioning, QoS guarantee through self-adaptation policies, and automatic and dynamic SLA configuration. Unlike CSLA and the approach offered by ServiceNow, our approach is based on Ruby, which has a native support for flexibility and agility, and thus allows for virtual and flexible instrumentation of SLA services as well as scalability of SLA management.
+Further research approaches have been proposed to represent SLAs for Cloud deployments. In \cite{kouki} Kouki et al propose the Cloud Service Level Agreement language (CSLA) that enables the definition of SLAs for any type of cloud service. CSLA is intended for dynamic service provisioning environments and is based on the Open Cloud Computing Interface (OCCI) \cite{occi} and the Cloud Computing Reference Architecture of the National Institute of Standards and Technology (NIST) \cite{nist}.
 
 
-
-%3	S. Bajaj, et al. Web services policy framework (WS-Policy), Sept. 2004, http://specs.xmlsoap.org/ws/2004/09/policy/ws-policy0904.pdf
-%4	D. D. Lamanna, J. Skene and W. Emmerich, Slang: A language for defining service level agreements, 2003, pp. 100–106.
-%5	A. Paschke, RBSLA:A declarative Rule-based Service Level Agreement Language based on RuleML, Proc. of the International Conference on Computational Intelligence for Modelling, Control and Automation, and International Conference on Intelligent Agents, Web Technologies and Internet Commerce (CIMCA-IAWTIC’05), 2005.
-%6	Y. Kouki, F. A. de Oliveira, S. Dupont, and T. Ledoux, A Language Support for Cloud Elasticity Management, In 14th IEEE/ACM International Symposium on Cluster, Cloud and Grid Computing (CCGrid), 2014.
-%7	http://wiki.servicenow.com/index.php?title=Service_Level_Management_for_Cloud_Provisioning#gsc.tab=0 
